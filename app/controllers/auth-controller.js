@@ -3,18 +3,11 @@ const router = express.Router();
 const passport = require("../config/passport");
 const db = require("../models");
 
-router.get("/login", (req, res) =>{
-	res.render("login"); 
-});
-
-router.get("/signup", (req,res) =>{
-	res.render("signup");
-});
-router.post("/api/login", passport.authenticate("local", {
+router.post("/login", passport.authenticate("local", {
 		successRedirect: "/authenticated",
 		failureRedirect: "/login" }));
 
-router.post("/api/signup", (req,res) =>{
+router.post("/signup", (req,res) =>{
 	db.User.create({
 		full_name: `${req.body.firstname} ${req.body.lastname}`, 
 		first_name: req.body.firstname, 
@@ -23,7 +16,7 @@ router.post("/api/signup", (req,res) =>{
 		password: req.body.password,
 	})
 	.then( () =>{
-		res.redirect(307, "/api/login");
+		res.redirect(307, "/login");
 	})
 	.catch((err) =>{
 		res.status(401).json(err);

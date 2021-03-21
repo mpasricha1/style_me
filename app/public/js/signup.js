@@ -15,6 +15,6 @@ $(document).ready(function() {
       lname: passwordInput.val().trim()
     };
 
-    $.post("/api/signup", userData).then( (data) =>{
+    $.post("signup", userData).then( (data) =>{
     	console.log(data)
     })

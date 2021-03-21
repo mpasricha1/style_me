@@ -22,10 +22,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const publicRouter = require("./controllers/public-controller.js");
-const loginRouter = require("./controllers/login-controller.js");
+const authRouter = require("./controllers/auth-controller.js");
 const memberRouter = require("./controllers/member-controller.js");
 app.use(publicRouter);
-app.use(loginRouter);
+app.use(authRouter);
 app.use(memberRouter);
 
 
