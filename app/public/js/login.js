@@ -13,7 +13,10 @@ $(document).ready(() =>{
 		}
 		console.log(userData)
 
-		$.post("/api/login", userData).then( () =>{ console.log("Sent Login")})
+		$.post("/api/login", userData).then( () =>{ 
+			console.log("Sent Login"); 
+			window.location.replace("/authenticated");
+		})
 
 	})
 		

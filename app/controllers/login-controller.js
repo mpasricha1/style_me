@@ -3,21 +3,18 @@ const router = express.Router();
 const passport = require("../config/passport");
 const db = require("../models");
 
+const isAuthenticated = require("../config/middleware/isAuthenticated");
+
 router.get("/login", (req, res) =>{
 	res.render("login"); 
 });
 
 router.get("/signup", (req,res) =>{
 	res.render("signup");
-})
-router.get("/authenticated", (req,res) =>{
-	res.render("authenticated")
-})
-
-router.post("/api/login", passport.authenticate("local"), (req, res) => {
-	console.log("logged in")
-	res.redirect("/authenticated")
 });
+router.post("/api/login", passport.authenticate("local", {
+		successRedirect: "/authenticated",
+		failureRedirect: "/login" }));
 
 router.post("/api/signup", (req,res) =>{
 	db.User.create({
@@ -33,6 +30,6 @@ router.post("/api/signup", (req,res) =>{
 	.catch((err) =>{
 		res.status(401).json(err);
 	})
-})
+});
 
 module.exports = router;

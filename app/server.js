@@ -22,8 +22,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-const loginRouter = require("./controllers/login-controller.js"); 
+const loginRouter = require("./controllers/login-controller.js");
+const memberRouter = require("./controllers/member-controller.js");
 app.use(loginRouter);
+app.use(memberRouter);
 // require("./routes/api-routes.js")(app); 
 
 db.sequelize.sync().then( () =>{
