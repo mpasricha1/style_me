@@ -1,5 +1,6 @@
 const express = require("express"); 
-const session = require("express-session"); 
+const session = require("express-session");
+const path = require('path');
 require("dotenv").config();
 
 const passport = require("./config/passport");
@@ -16,8 +17,8 @@ app.use(session({ secret: process.env.SECRET_KEY, resave:true, saveUninitialized
 app.use(passport.initialize()); 
 app.use(passport.session());
 
-// require("./routes/html-routes.js")(app); 
-// require("./routes/api-routes.js")(app); 
+require("./routes/html-routes.js")(app); 
+require("./routes/api-routes.js")(app); 
 
 db.sequelize.sync().then( () =>{
 	app.listen(PORT, () => {
