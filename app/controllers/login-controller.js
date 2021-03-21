@@ -3,8 +3,6 @@ const router = express.Router();
 const passport = require("../config/passport");
 const db = require("../models");
 
-const isAuthenticated = require("../config/middleware/isAuthenticated");
-
 router.get("/login", (req, res) =>{
 	res.render("login"); 
 });
@@ -31,5 +29,10 @@ router.post("/api/signup", (req,res) =>{
 		res.status(401).json(err);
 	})
 });
+
+router.get("/logout", (req, res ) =>{
+	req.logout();
+	res.redirect("/");
+})
 
 module.exports = router;

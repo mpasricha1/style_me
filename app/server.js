@@ -18,15 +18,16 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars"); 
 
 app.use(session({ secret: process.env.SECRET_KEY, resave:true, saveUninitialized: true}))
-app.use(passport.initialize()); 
+app.use(passport.initialize());  
 app.use(passport.session());
 
-
+const publicRouter = require("./controllers/public-controller.js");
 const loginRouter = require("./controllers/login-controller.js");
 const memberRouter = require("./controllers/member-controller.js");
+app.use(publicRouter);
 app.use(loginRouter);
 app.use(memberRouter);
-// require("./routes/api-routes.js")(app); 
+
 
 db.sequelize.sync().then( () =>{
 	app.listen(PORT, () => {
