@@ -25,12 +25,17 @@ module.exports = (sequelize, DataTypes) =>{
 		password: {
 			type: DataTypes.STRING(255), 
 			allowNull: false
-		}, 
+		},
+		// status: {
+		// 	type: DataTypes.ENUM("active", "inactive"), 
+		// 	defaultValue: "active"
+		// },
+		// last_login: DataTypes.DATE,
 		age: DataTypes.INTEGER, 
 		gender: DataTypes.STRING(15)
 	});
 
-	User.prototype.validPassword = (password) =>{
+	User.prototype.validPassword = function(password){
 		return bcrypt.compareSync(password, this.password); 
 	};
 	User.addHook("beforeCreate", (user) =>{
