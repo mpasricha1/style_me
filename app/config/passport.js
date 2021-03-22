@@ -5,7 +5,8 @@ var db = require("../models");
 
 passport.use(new LocalStrategy(
 	{
-		usernameField: "email"
+		usernameField: "email", 
+		passwordField: "password"
 	},
 	(email, password, done) =>{
 		db.User.findOne({
@@ -13,6 +14,8 @@ passport.use(new LocalStrategy(
 				email: email
 			}
 		}).then( (dbUser) =>{
+			console.log(dbUser);
+			console.log(password);
 			if(!dbUser || !dbUser.validPassword(password)){
 				return done(null, false, {
 					message: "Invalid username or password."
