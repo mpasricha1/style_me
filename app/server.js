@@ -23,10 +23,10 @@ app.use(passport.session());
 
 const publicRouter = require("./controllers/public-controller.js");
 const authRouter = require("./controllers/auth-controller.js");
-const memberRouter = require("./controllers/member-controller.js");
+const privateRouter = require("./controllers/private-controller.js");
 app.use(publicRouter);
 app.use(authRouter);
-app.use(memberRouter);
+app.use(privateRouter);
 
 
 db.sequelize.sync().then( () =>{

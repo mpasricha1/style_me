@@ -5,7 +5,14 @@ const db = require("../models");
 
 router.post("/login", passport.authenticate("local", {
 		successRedirect: "/authenticated",
-		failureRedirect: "/login" }));
+		failureRedirect: "/login" 
+	}
+));
+
+router.get("/logout", (req, res ) =>{
+	req.logout();
+	res.redirect("/");
+});
 
 router.post("/signup", (req,res) =>{
 	db.User.create({
@@ -22,10 +29,5 @@ router.post("/signup", (req,res) =>{
 		res.status(401).json(err);
 	})
 });
-
-router.get("/logout", (req, res ) =>{
-	req.logout();
-	res.redirect("/");
-})
 
 module.exports = router;

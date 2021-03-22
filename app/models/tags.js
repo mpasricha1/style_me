@@ -13,5 +13,5 @@ module.exports = (sequelize, DataTypes) =>{
 			allowNull: false
 		}
 	});
-	return Tags
+	return Tags;
 }

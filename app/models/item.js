@@ -30,5 +30,5 @@ module.exports = (sequelize, DataTypes) =>{
 		}, 
 		product_link: DataTypes.STRING(255)
 	})
-	return Item
+	return Item;
 }
