@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./css/login.css" />
+
+    <title>Style Me</title>
+  </head>
+  <body>
+    <h2 style="margin: 10px 0px 0px 20px">Login Form</h2>
+
+    <form>
+      <div class="imgcontainer">
+        <!-- Will change logo once we have it defined -->
+        <img
+          src="https://media.istockphoto.com/photos/dressing-room-in-bright-colors-closet-compartment-3d-illustration-picture-id1002114190?s=612x612"
+          alt="Style_me logo"
+          class="style_me_logo"
+        />
+      </div>
+
+      <!-- Login error should display if email or psw are invalid -->
+      <div class="login-error-container">
+        <p id="login-error">Invalid email or password</p>
+      </div>
+
+      <!-- Email and password input fields -->
+      <div class="container" id="input-fields">
+        <label for="email"><b>Email</b></label>
+        <input
+          type="text"
+          placeholder="Enter email address"
+          name="email"
+          id="email-field"
+          required
+        />
+
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          id="psw-field"
+          required
+        />
+      </div>
+
+      <!-- Login and Home buttons -->
+      <div class="btn_container">
+        <button type="submit" value="Login" id="login-btn">Login</button>
+        <br />
+        <button type="button" id="home-btn" style="background-color: #f44336">
+          Home
+        </button>
+      </div>
+    </form>
+
+    <!-- Custom Script -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/login.js" type="text/javascript"></script>
+  </body>
+</html>
