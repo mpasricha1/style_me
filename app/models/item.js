@@ -2,27 +2,15 @@ module.exports = (sequelize, DataTypes) =>{
 	const Item = sequelize.define("Item", {
 		user_id: {
 			type: DataTypes.INTEGER, 
-			allowNull: false, 
-			references: {
-				model: "users",
-				key: "id"
-			} 
+			allowNull: false
 		}, 
 		catalog_id: {
 			type: DataTypes.INTEGER, 
-			allowNull: false, 
-			references: {
-				model: "catalogs",
-				key: "id"
-			} 
+			allowNull: false
 		}, 
 		category_id: {
 			type: DataTypes.INTEGER, 
-			allowNull: false, 
-			references: {
-				model: "categories",
-				key: "id"
-			}
+			allowNull: false 
 		}, 
 		item_name: {
 			type: DataTypes.INTEGER, 
@@ -30,5 +18,14 @@ module.exports = (sequelize, DataTypes) =>{
 		}, 
 		product_link: DataTypes.STRING(255)
 	})
+
+	Item.associate = (models) =>{ 
+		models.Item.belongsTo(models.User,{foreignKey: { allowNull: false}});
+		models.Item.belongsTo(models.Catalog, {foreignKey: { allowNull: false}});
+		models.Item.belongsTo(models.Categories, {foreignKey: { allowNull: false}});
+		models.Item.hasMany(models.Outfit_item);
+		models.Item.hasMany(models.Tag);
+	};
+
 	return Item;
 }

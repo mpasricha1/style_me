@@ -1,17 +1,15 @@
 module.exports = (sequelize, DataTypes) =>{
-	const Tags = sequelize.define("Tags", {
+	const Tag = sequelize.define("Tag", {
 		item_id: {
 			type: DataTypes.INTEGER, 
-			allowNull: false,
-			references: {
-				model: "items", 
-				key: "id"
-			}
+			allowNull: false
 		},
 		tag: {
 			type: DataTypes.STRING(20), 
 			allowNull: false
 		}
 	});
-	return Tags;
+
+	Tag.associate = (models) => {models.Tag.belongsTo(models.Item, {foreignKey: { allowNull: true}})}; 
+	return Tag;
 }

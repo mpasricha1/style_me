@@ -5,5 +5,8 @@ module.exports = (sequelize, DataTypes) =>{
 			allowNull: false
 		}
 	});
+
+	Catalog.associate = (models) => {models.Catalog.hasOne(models.Item)};
+	
 	return Catalog;
 }	
