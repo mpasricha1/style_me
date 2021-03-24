@@ -10,6 +10,6 @@ module.exports = (sequelize, DataTypes) =>{
 		}
 	});
 
-	Tag.associate = (models) => {models.Tag.belongsTo(models.Item, {foreignKey: { allowNull: true}})}; 
+	Tag.associate = (models) => {models.Tag.belongsTo(models.Item, {foreignKey: { allowNull: false}})}; 
 	return Tag;
 }

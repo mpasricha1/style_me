@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
 	});
 
 	Outfit_item.associate = (models) =>{ 
-		models.Outfit_item.belongsTo(models.Item, {foreignKey: { allowNull: true}});
-		models.Outfit_item.belongsTo(models.Outfit, {foreignKey: { allowNull: true}}); 
+		models.Outfit_item.belongsTo(models.Item, {foreignKey: { allowNull: false}});
+		models.Outfit_item.belongsTo(models.Outfit, {foreignKey: { allowNull: false}}); 
 	}
 
 	return Outfit_item;
