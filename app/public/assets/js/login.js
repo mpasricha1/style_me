@@ -13,8 +13,8 @@ $(document).ready(function() {
       };
   
       if (!userData.email || !userData.password) {
-        $("#login-error").css("opacity","1");
-        return;
+        
+        return $("#login-error").css("opacity","1");
       }
   
       // If we have an email and password we run the loginUser function and clear the form
