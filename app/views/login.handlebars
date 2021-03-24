@@ -1,49 +1,33 @@
 <h2 style="margin: 10px 0px 0px 20px">Login Form</h2>
 
-    <form class="login">
-      <div class="imgcontainer">
-        <!-- Will change logo once we have it defined -->
-        <img
-          src="https://media.istockphoto.com/photos/dressing-room-in-bright-colors-closet-compartment-3d-illustration-picture-id1002114190?s=612x612"
-          alt="Style_me logo"
-          class="style_me_logo"
-        />
-      </div>
+<form class="login">
+  <div class="imgcontainer">
+    <!-- Will change logo once we have it defined -->
+    <img
+      src="https://media.istockphoto.com/photos/dressing-room-in-bright-colors-closet-compartment-3d-illustration-picture-id1002114190?s=612x612"
+      alt="Style_me logo" class="style_me_logo" />
+  </div>
 
-      <!-- Login error should display if email or psw are invalid -->
-      <div class="login-error-container">
-        <p id="login-error">Invalid email or password</p>
-      </div>
+  <!-- Login error should display if email or psw are invalid -->
+  <div class="login-error-container">
+    <p id="login-error" style="opacity: 0; background-color: red; width: fit-content">Invalid email or password</p>
+  </div>
 
-      <!-- Email and password input fields -->
-      <div class="container" id="input-fields">
-        <label for="email"><b>Email</b></label>
-        <input
-          type="text"
-          placeholder="Enter email address"
-          name="email"
-          id="email-field"
-          required
-        />
+  <!-- Email and password input fields -->
+  <div class="container" id="input-fields">
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter email address" name="email" id="email-field" required />
 
-        <label for="psw"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          id="psw-field"
-          required
-        />
-      </div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw-field" required />
+  </div>
 
-      <!-- Login and Home buttons -->
-      <div class="btn_container">
-        <button type="submit" value="Login" id="login-btn">Login</button>
-        <br />
-        <button type="button" id="home-btn" style="background-color: #f44336">
-          Home
-        </button>
-      </div>
-    </form>
-
-    
+  <!-- Login and Home buttons -->
+  <div class="btn_container">
+    <button type="submit" value="Login" id="login-btn">Login</button>
+    <br />
+    <button type="button" id="home-btn" style="background-color: #f44336">
+      Home
+    </button>
+  </div>
+</form>
