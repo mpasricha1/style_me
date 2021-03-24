@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
 	}); 
 
 	Catalog_item.associate = (models) =>{ 
-		models.Catalog_item.belongsTo(models.Item, {foreignKey: { allowNull: true}});
-		models.Catalog_item.belongsTo(models.Catalog, {foreignKey: { allowNull: true}}); 
+		models.Catalog_item.belongsTo(models.Item, {foreignKey: { allowNull: false}});
+		models.Catalog_item.belongsTo(models.Catalog, {foreignKey: { allowNull: false}}); 
 	}
 
 	return Catalog_item;
