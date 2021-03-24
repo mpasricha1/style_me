@@ -59,3 +59,12 @@ CREATE TABLE outfit_item(
   FOREIGN KEY(outfit_id) REFERENCES Outfit(id),
   FOREIGN KEY(item_id) REFERENCES Item(id)
 );
+
+CREATE TABLE catalog_item(
+  id INT AUTO_INCREMENT NOT NULL,
+  item_id INT NOT NULL, 
+  catalog_id INT NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(catalog_id) REFERENCES Catalog(id),
+  FOREIGN KEY(item_id) REFERENCES Item(id)
+);

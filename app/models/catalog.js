@@ -3,10 +3,14 @@ module.exports = (sequelize, DataTypes) =>{
 		catalog_name: {
 			type: DataTypes.STRING(50), 
 			allowNull: false
+		}, 
+		item_id: {
+			type: DataTypes.INTEGER, 
+			allowNull: false
 		}
 	});
 
-	Catalog.associate = (models) => {models.Catalog.hasOne(models.Item)};
+	Catalog.associate = (models) => {models.Catalog.hasMany(models.Catalog_item)};
 	
 	return Catalog;
 }	
