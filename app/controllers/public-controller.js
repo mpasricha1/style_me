@@ -10,7 +10,9 @@ router.get("/login", (req, res) =>{
 	if (req.user){
 		res.redirect("/authenticated");
 	}
-	res.render("login"); 
+	let message = req.flash("message")
+	console.log(message);
+	res.render("login", { message }); 
 	
 });
 

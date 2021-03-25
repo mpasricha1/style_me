@@ -5,11 +5,12 @@ const db = require("../models");
 
 router.post("/login", passport.authenticate("local", {
 		successRedirect: "/authenticated",
-		failureRedirect: "/login" 
+		failureRedirect: "/login", 
+		failureFlash: true
 	}
 ));
 
-router.get("/logout", (req, res ) =>{
+router.get("/logout", (req, res) =>{
 	req.logout();
 	res.redirect("/");
 });
