@@ -4,10 +4,6 @@ module.exports = (sequelize, DataTypes) =>{
 			type: DataTypes.INTEGER, 
 			allowNull: false
 		}, 
-		catalog_id: {
-			type: DataTypes.INTEGER, 
-			allowNull: false
-		}, 
 		category_id: {
 			type: DataTypes.INTEGER, 
 			allowNull: false 
