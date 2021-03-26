@@ -1,0 +1,22 @@
+/* Font-Family: 'Julius Sans One', Sans-Serif;
+Font-Size: 45px;
+Font-Family: 'Monda', Sans-Serif;
+Font-Size: 16px; */
+#logo {
+    Font-Family: 'Raleway', Sans-Serif;
+    Font-Size: 44px;
+    text-align: center;
+}
+p {
+    Font-Family: 'Open Sans', Sans-Serif;
+    Font-Size: 15px;
+    padding: 10px;
+
+}
+.btn {
+    width: 100%;
+    padding: 10%;
+}
+a:hover {
+    opacity: 20%;
+}
