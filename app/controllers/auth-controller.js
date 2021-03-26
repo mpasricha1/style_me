@@ -17,9 +17,9 @@ router.get("/logout", (req, res) =>{
 
 router.post("/signup", (req,res) =>{
 	db.User.create({
-		full_name: `${req.body.firstname} ${req.body.lastname}`, 
-		first_name: req.body.firstname, 
-		last_name: req.body.lastname, 
+		full_name: `${req.body.first_name} ${req.body.last_name}`, 
+		first_name: req.body.first_name, 
+		last_name: req.body.last_name, 
 		email: req.body.email, 
 		password: req.body.password,
 	})
