@@ -3,12 +3,16 @@ const router = express.Router();
 const passport = require("../config/passport");
 const db = require("../models");
 
-router.post("/login", passport.authenticate("local", {
-		successRedirect: "/authenticated",
-		failureRedirect: "/login", 
-		failureFlash: true
-	}
-));
+router.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) { return next(err); }
+        if (!user) { return res.render('authenticated'); }
+        req.logIn(user, function(err) {
+            if (err) { return next(err); }
+            return res.json({detail: info});
+        });
+    })(req, res, next);
+});
 
 router.get("/logout", (req, res) =>{
 	req.logout();

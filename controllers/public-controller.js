@@ -6,16 +6,12 @@ router.get("/", (req, res) =>{
 	res.render("landing");
 });
 
-let count = 0;
 router.get("/login", (req, res) =>{
 	
-	count++; 
 	if (req.user){
 		res.redirect("/authenticated");
 	}
-	console.log("Count: " + count)
 	let message = req.flash("message")
-	console.log(message);
 	res.render("login", { message }); 
 	
 });
