@@ -12,7 +12,11 @@ module.exports = (sequelize, DataTypes) =>{
 			type: DataTypes.INTEGER, 
 			allowNull: false
 		}, 
-		product_link: DataTypes.STRING(255)
+		product_link: DataTypes.STRING(255), 
+		image_link: {
+			type: DataTypes.STRING(255), 
+			allowNull: false
+		}
 	})
 
 	Item.associate = (models) =>{ 

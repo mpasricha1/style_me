@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 router.get("/", (req, res) =>{
-	res.send("Home Page");
+	res.render("landing");
 });
 
 let count = 0;
