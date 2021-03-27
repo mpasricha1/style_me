@@ -11,8 +11,7 @@ router.get("/addnew", isAuthenticated, (req,res) =>{
 	res.render("addnew")
 }); 
 
-
-router.get("/addnew", isAuthenticated, (req,res) => {
+router.post("/addnew", isAuthenticated, (req,res) => {
 	res.render("addnew")
 })
 
