@@ -26,11 +26,7 @@ module.exports = (sequelize, DataTypes) =>{
 			type: DataTypes.STRING(255), 
 			allowNull: false
 		},
-		// status: {
-		// 	type: DataTypes.ENUM("active", "inactive"), 
-		// 	defaultValue: "active"
-		// },
-		// last_login: DataTypes.DATE,
+		googleID: DataTypes.STRING(255),
 		age: DataTypes.INTEGER, 
 		gender: DataTypes.STRING(15)
 	});
