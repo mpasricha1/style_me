@@ -19,10 +19,21 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "sequelize": "^6.5.1"
   },
   "keywords": [],
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpasricha1/style_me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpasricha1/style_me/issues"
+  },
+  "homepage": "https://github.com/mpasricha1/style_me#readme",
   "description": ""
 }
