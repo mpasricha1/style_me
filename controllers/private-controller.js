@@ -7,6 +7,10 @@ const isAuthenticated = require("../config/middleware/isAuthenticated");
 router.get("/authenticated", isAuthenticated, (req,res) =>{
 	res.render("authenticated")
 }); 
+router.get("/addnew", isAuthenticated, (req,res) =>{
+	res.render("addnew")
+}); 
+
 
 router.get("/addnew", isAuthenticated, (req,res) => {
 	res.render("addnew")
