@@ -19,6 +19,14 @@ router.get("/addnew", isAuthenticated, (req,res) =>{
 
 router.post("/addnew", isAuthenticated, (req,res) =>{
 	console.log(req.body)
+	console.log(req.user)
+	db.Item.create({
+		UserId: req.user.id, 
+		CategoryId: req.body.category_name, 
+		item_name: req.body.item_name, 
+		image_link: req.body.image, 
+		image_thumbnail: req.body.thumbnail
+	})
 }); 
 
 module.exports = router;
