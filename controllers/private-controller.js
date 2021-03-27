@@ -10,8 +10,7 @@ router.get("/authenticated", isAuthenticated, (req,res) =>{
 router.get("/addnew", isAuthenticated, async (req,res) =>{
 	try{
 		let categories = await getAllCategories(); 
-		categories = categories.map(category => 
-	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
+		categories = mapCategories(categories);
 		console.log(categories);
 		res.render("addnew", {categories}); 
 	}catch(err){
@@ -30,14 +29,25 @@ router.post("/addnew", isAuthenticated, (req,res) =>{
 	res.redirect("/addnew");
 }); 
 
-router.get("/buildoutfit", isAuthenticated, (req,res) =>{
-	res.render("buildOutfit");
+router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
+	try{
+		let categories = await getAllCategories(); 
+		categories = mapCategories(categories);
+
+		res.render("buildOutfit", {categories});
+	}catch(err){
+		if (err) throw err;
+	}
 });
 
 const getAllCategories = () => {
 	return db.Categories.findAll({
 		attributes: ["id", "category_name"]
 	})
+}
+const mapCategories = (categories) =>{
+	return categories.map(category => 
+	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
 }
 
 module.exports = router;
