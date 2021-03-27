@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 <!-- Image should be displayed in img tag -->
-<img src="" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
+<img id = "img" src="" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
 <!-- Photo input fields -->
 <div>
     <label for="item_name">Item Name</label>
@@ -40,6 +40,7 @@
         (error, result) => {
             if (!error && result && result.event === "success") {
                 console.log("Done! Here is the image info: ", result.info);
+                document.getElementById("img").setAttribute("src", result.info.url);
             }
         }
     );
