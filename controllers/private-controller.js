@@ -12,8 +12,4 @@ router.get("/addnew", isAuthenticated, (req,res) =>{
 }); 
 
 
-router.get("/addnew", isAuthenticated, (req,res) => {
-	res.render("addnew")
-})
-
 module.exports = router;
