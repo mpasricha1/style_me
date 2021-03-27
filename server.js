@@ -3,6 +3,7 @@ const session = require("express-session");
 const exphbs = require('express-handlebars')
 const path = require('path');
 require("dotenv").config();
+const flash = require("connect-flash");
 
 const passport = require("./config/passport");
 
@@ -18,9 +19,10 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars"); 
 
 app.use(session({ secret: process.env.SECRET_KEY, resave:true, saveUninitialized: true}))
-app.use(session({ secret: "keyboard cat", resave:true, saveUninitialized: true}))
 app.use(passport.initialize());  
 app.use(passport.session());
+
+app.use(flash());
 
 const publicRouter = require("./controllers/public-controller.js");
 const authRouter = require("./controllers/auth-controller.js");

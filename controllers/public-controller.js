@@ -7,10 +7,12 @@ router.get("/", (req, res) =>{
 });
 
 router.get("/login", (req, res) =>{
+	
 	if (req.user){
 		res.redirect("/authenticated");
 	}
-	res.render("login"); 
+	let message = req.flash("message")
+	res.render("login", { message }); 
 	
 });
 

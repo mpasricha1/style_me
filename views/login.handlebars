@@ -9,9 +9,11 @@
   </div>
 
   <!-- Login error should display if email or psw are invalid -->
-  <div class="login-error-container">
-    <p id="login-error" style="opacity: 0; background-color: red; width: fit-content">Invalid email or password</p>
-  </div>
+  {{#if message}}
+    <div class="login-error-container">
+      <p id="login-error" style="opacity: 1; background-color: red; width: fit-content">{{message}}</p>
+    </div>
+  {{/if}}
 
   <!-- Email and password input fields -->
   <div class="container" id="input-fields">
