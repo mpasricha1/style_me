@@ -26,5 +26,14 @@
     "sequelize": "^6.5.1"
   },
   "keywords": [],
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpasricha1/style_me.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpasricha1/style_me/issues"
+  },
+  "homepage": "https://github.com/mpasricha1/style_me#readme",
   "description": ""
 }
