@@ -1,6 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-// const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const db = require("../models");
 const keys = require("./keys");
@@ -24,28 +24,28 @@ passport.use(new LocalStrategy(
 		});
 	}	
 ));
-// passport.use(new GoogleStrategy(
-//     {
-//       clientID: keys.google.clientID,
-//       clientSecret: keys.google.clientSecret,
-//       callbackURL: "/auth/google/redirect"
-//     },
-//     (accessToken, refreshToken, profile, done) => {
-//     	console.log(profile)
-//       // db.User.findOne({
-//       // 	where: {
-//       // 		googleID: profile.id
-//       // 	}
-//       // }).then( (dbUser) => {
-//       // 	if(dbUser){
-//       // 		done(null, dbUser)
-//       // 	}else{
+passport.use(new GoogleStrategy(
+    {
+      clientID: keys.google.clientID,
+      clientSecret: keys.google.clientSecret,
+      callbackURL: "/auth/google/redirect"
+    },
+    (accessToken, refreshToken, profile, done) => {
+    	console.log(profile)
+      // db.User.findOne({
+      // 	where: {
+      // 		googleID: profile.id
+      // 	}
+      // }).then( (dbUser) => {
+      // 	if(dbUser){
+      // 		done(null, dbUser)
+      // 	}else{
 
-//       // 	}
-//       // }) 
-//     }
-//   )
-// );
+      // 	}
+      // }) 
+    }
+  )
+);
 
 passport.serializeUser(function(user, cb) {
   cb(null, user);
