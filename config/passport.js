@@ -37,19 +37,26 @@ passport.use(new GoogleStrategy({
   		let dbUser = await db.User.findOne({ where: { google_id: profile.id }});
 
   		if(!dbUser){
-  			let emailValue = await db.Counters.findOne({ attributes: ["google_email"]}); 
+  			var emailValue = await db.Counters.findOne({ 
+  				attributes: ["value"], 
+  				where: {counter_name: "google_email"}
+  			}); 
+
   			let data = await db.User.create({
   				full_name: profile.displayName, 
   				google_id: profile.id,
-  				email: `trashgoogle${emailValue.dataValues.google_email}@trash.com`, 
+  				email: `trashgoogle${emailValue.dataValues.value}@trash.com`, 
   				password: randomGen.generateString()
   			});
   			profile.google_id = profile.id; 
   			profile.id = data.id;
+  			await db.Counters.update({value: emailValue.dataValues.value += 1},{
+  				where: {counter_name: "google_email"}});
   		}else{
   			profile.google_id = profile.id; 
   			profile.id = dbUser.dataValues.id;
-  		}
+  		 }
+
         userProfile=profile;
      	return done(null, userProfile);
   		
