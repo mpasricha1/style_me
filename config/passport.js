@@ -38,7 +38,6 @@ passport.use(new GoogleStrategy({
   		}
   	}).then( (dbUser) => {
   		if(!dbUser){
-  			console.log("In no User")
   			db.User.create({
   				full_name: profile.displayName, 
   				google_id: profile.id

@@ -14,13 +14,15 @@ module.exports = (sequelize, DataTypes) =>{
 		}, 
 		email: {
 			type: DataTypes.STRING(25),
-			unique: true, 
+			unique: true,
+			allowNull: false, 
 			validate: {
 				isEmail: true
 			}
 		}, 
 		password: {
-			type: DataTypes.STRING(255)
+			type: DataTypes.STRING(255), 
+			allowNull: false
 		},
 		google_id: DataTypes.STRING(50), 
 		age: DataTypes.INTEGER, 
