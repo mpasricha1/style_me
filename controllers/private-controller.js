@@ -14,7 +14,7 @@ router.get("/addnew", isAuthenticated, async (req,res) =>{
 
 		res.render("addnew", {categories}); 
 	}catch(err){
-		if(err) throw err;
+		if(err) return res.status(500).end();
 	}
 }); 
 
@@ -31,23 +31,22 @@ router.post("/addnew", isAuthenticated, (req,res) =>{
 
 router.get("/buildoutfit", async (req,res) =>{
 	try{
+		if(req.session.cat_id){
+			var items = await getAllItemsByCategory(req.session.cat_id);
+			items = mapItems(items);
+		}
 		let categories = await getAllCategories(); 
 		categories = mapCategories(categories);
-
-		let items = await getAllItemsByCategory(14);
-		items = mapItems(items);
-		console.log(categories)
-		console.log(items)
-		
-
-		res.render("buildOutfit", {categories: categories, newOutfititems: items});
+	
+		res.render("buildOutfit", {categories: categories, newOutfititems: items} );
 	}catch(err){
-		if (err) throw err;
+		if(err) return res.status(500).end();
 	}
 });
 
-router.post("/buildoutfit/:id", isAuthenticated, async(req, res) =>{
-	
+router.post("/buildoutfit/", (req, res) =>{
+	req.session.cat_id = req.body.id;  
+	res.redirect("/buildoutfit")
 });
 
 const getAllCategories = () => {
