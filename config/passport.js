@@ -37,9 +37,7 @@ passport.use(new GoogleStrategy({
   		let dbUser = await db.User.findOne({ where: { google_id: profile.id }});
 
   		if(!dbUser){
-  			console.log(randomGen.generateString());
   			let emailValue = await db.Counters.findOne({ attributes: ["google_email"]}); 
-  			console.log(emailValue)
   			let data = await db.User.create({
   				full_name: profile.displayName, 
   				google_id: profile.id,
@@ -48,36 +46,16 @@ passport.use(new GoogleStrategy({
   			});
   			profile.google_id = profile.id; 
   			profile.id = data.id;
+  		}else{
+  			profile.google_id = profile.id; 
+  			profile.id = dbUser.dataValues.id;
   		}
-
-  		profile.google_id = profile.id; 
-  		profile.id = dbUser.dataValues.id;
         userProfile=profile;
      	return done(null, userProfile);
   		
   	}catch(err){
   		if (err) throw err;
   	}
-  	// db.User.findOne({
-  	// 	where: {
-  	// 		google_id: profile.id
-  	// 	}
-  	// }).then( (dbUser) => {
-  	// 	if(!dbUser){
-  	// 		db.User.create({
-  	// 			full_name: profile.displayName, 
-  	// 			google_id: profile.id,
-  	// 			email: 
-  	// 		}).then( (data) => {
-  	// 			profile.google_id = profile.id; 
-  	// 			profile.id = data.id;
-  	// 		})
-  	// 	}
-  	// 	profile.google_id = profile.id; 
-  	// 	profile.id = dbUser.dataValues.id;
-   //      userProfile=profile;
-   //   	return done(null, userProfile);
-  	// })
   }
 ));
 

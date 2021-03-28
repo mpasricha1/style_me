@@ -1,6 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
 	const Counters = sequelize.define("Counters", {
-		google_email: { type: DataTypes.INTEGER}
+		counter_name: DataTypes.STRING(25), 
+		value: DataTypes.INTEGER
 	})
 
 	return Counters;
