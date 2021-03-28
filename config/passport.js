@@ -3,6 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const randomGen = require("../utils/randomString.js");
 
 const db = require("../models");
 
@@ -31,26 +32,52 @@ passport.use(new GoogleStrategy({
     clientSecret: GOOGLE_CLIENT_SECRET,
     callbackURL: "/auth/google/callback"
   },
-  function(accessToken, refreshToken, profile, done) {
-  	db.User.findOne({
-  		where: {
-  			google_id: profile.id
-  		}
-  	}).then( (dbUser) => {
+  async (accessToken, refreshToken, profile, done) => {
+  	try{
+  		let dbUser = await db.User.findOne({ where: { google_id: profile.id }});
+
   		if(!dbUser){
-  			db.User.create({
+  			console.log(randomGen.generateString());
+  			let emailValue = await db.Counters.findOne({ attributes: ["google_email"]}); 
+  			console.log(emailValue)
+  			let data = await db.User.create({
   				full_name: profile.displayName, 
-  				google_id: profile.id
-  			}).then( (data) => {
-  				profile.google_id = profile.id; 
-  				profile.id = data.id;
-  			})
+  				google_id: profile.id,
+  				email: `trashgoogle${emailValue.dataValues.google_email}@trash.com`, 
+  				password: randomGen.generateString()
+  			});
+  			profile.google_id = profile.id; 
+  			profile.id = data.id;
   		}
+
   		profile.google_id = profile.id; 
   		profile.id = dbUser.dataValues.id;
         userProfile=profile;
      	return done(null, userProfile);
-  	})
+  		
+  	}catch(err){
+  		if (err) throw err;
+  	}
+  	// db.User.findOne({
+  	// 	where: {
+  	// 		google_id: profile.id
+  	// 	}
+  	// }).then( (dbUser) => {
+  	// 	if(!dbUser){
+  	// 		db.User.create({
+  	// 			full_name: profile.displayName, 
+  	// 			google_id: profile.id,
+  	// 			email: 
+  	// 		}).then( (data) => {
+  	// 			profile.google_id = profile.id; 
+  	// 			profile.id = data.id;
+  	// 		})
+  	// 	}
+  	// 	profile.google_id = profile.id; 
+  	// 	profile.id = dbUser.dataValues.id;
+   //      userProfile=profile;
+   //   	return done(null, userProfile);
+  	// })
   }
 ));
 

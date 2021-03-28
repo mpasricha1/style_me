@@ -10,6 +10,8 @@ INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Accessories"
 INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Skirt", NOW(), NOW()); 
 INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Shorts", NOW(), NOW());
 
+INSERT INTO counters(google_email, createdAt, updatedAt) VALUES(1, NOW(), NOW());
+
 DELETE FROM items;
 ALTER TABLE items AUTO_INCREMENT = 1;
 INSERT INTO Items(item_name, product_link, image_link, image_thumbnail, createdAt, updatedAt, CategoryId, UserId)

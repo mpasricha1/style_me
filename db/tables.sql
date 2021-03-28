@@ -7,6 +7,7 @@ CREATE TABLE User (
   last_name VARCHAR(25) NOT NULL,
   email VARCHAR(50) NOT NULL,
   pass VARCHAR(255) NOT NULL,
+  google_id VARCHAR(50), 
   age INT,
   gender VARCHAR(15), 
   PRIMARY KEY(id)
