@@ -11,7 +11,7 @@
             <!--side pictures of building outfits page-->
         {{#if newOutfititems}}
          {{#each newOutfititems }}
-            {{> (lookup . 'clothesCard')}}
+            {{> clothesCard}}
          {{/each}}
          {{else}}
             <div> Sorry no outfits items found</div>

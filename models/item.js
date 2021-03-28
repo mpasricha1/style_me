@@ -17,10 +17,8 @@ module.exports = (sequelize, DataTypes) =>{
 
 	Item.associate = (models) =>{ 
 		models.Item.belongsTo(models.User,{foreignKey: { allowNull: false}});
-		models.Item.belongsTo(models.Catalog);
 		models.Item.belongsTo(models.Categories, {foreignKey: { allowNull: false}});
 		models.Item.hasMany(models.Outfit_item);
-		models.Item.hasMany(models.Tag);
 	};
 
 	return Item;

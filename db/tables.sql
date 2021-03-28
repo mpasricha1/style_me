@@ -33,22 +33,15 @@ CREATE TABLE Outfit (
 CREATE TABLE Item (
   id INT AUTO_INCREMENT NOT NULL,
   user_id INT NOT NULL,
-  catalog_id INT NOT NULL,
   category_id INT NOT NULL,
   item_name VARCHAR(50) NOT NULL,
   product_link VARCHAR(255), 
+  image_link VARCHAR(255), 
+  image_thumbnail VARCHAR(255),
   PRIMARY KEY(id), 
   FOREIGN KEY(user_id) REFERENCES User(id),
   FOREIGN KEY(catalog_id) REFERENCES Catalog(id),
   FOREIGN KEY(category_id) REFERENCES Category(id)
-);
-
-CREATE TABLE Tags (
-  id INT AUTO_INCREMENT NOT NULL, 
-  item_id INT NOT NULL, 
-  tag VARCHAR(20) NOT NULL, 
-  PRIMARY KEY(id), 
-  FOREIGN KEY(item_id) REFERENCES Item(id)
 );
 
 CREATE TABLE outfit_item(
@@ -62,9 +55,9 @@ CREATE TABLE outfit_item(
 
 CREATE TABLE catalog_item(
   id INT AUTO_INCREMENT NOT NULL,
-  item_id INT NOT NULL, 
+  outfit_id INT NOT NULL, 
   catalog_id INT NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(catalog_id) REFERENCES Catalog(id),
-  FOREIGN KEY(item_id) REFERENCES Item(id)
+  FOREIGN KEY(outfit_id)) REFERENCES Outfit(id)
 );

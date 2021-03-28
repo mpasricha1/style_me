@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.INTEGER, 
 			allowNull: false
 		},
-		item_id: {
+		outfit_id: {
 			type: DataTypes.INTEGER, 
 			allowNull: false
 		}
 	}); 
 
 	Catalog_item.associate = (models) =>{ 
-		models.Catalog_item.belongsTo(models.Item, {foreignKey: { allowNull: false}});
+		models.Catalog_item.belongsTo(models.Outfit, {foreignKey: { allowNull: false}});
 		models.Catalog_item.belongsTo(models.Catalog, {foreignKey: { allowNull: false}}); 
 	}
 
