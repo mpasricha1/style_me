@@ -61,15 +61,8 @@ const mapCategories = (categories) =>{
 };
 const getAllItemsByCategory = (id) =>{
 	return db.Item.findAll({
-		include: [
-			{
-				model: db.Categories, 
-				where: {
-					id: id
-				}
-			}
-		]
-	})
+		include: [{ model: db.Categories, where: { id: id }}]
+	});
 };
 const mapItems = (items) =>{
 	return items.map(item => 
