@@ -37,7 +37,8 @@ router.get("/buildoutfit", async (req,res) =>{
 		}
 		let categories = await getAllCategories(); 
 		categories = mapCategories(categories);
-		
+		console.log(categories)
+		console.log(items)
 		res.render("buildOutfit", {categories: categories, newOutfititems: items} );
 	}catch(err){
 		if(err) return res.status(500).end();
@@ -66,7 +67,7 @@ const getAllItemsByCategory = (cat_id, user_id) =>{
 const mapItems = (items) =>{
 	return items.map(item => 
 	 			({id: item.dataValues.id, item_name: item.dataValues.item_name, 
-	 			   thumbnail: item.dataValues.image_thumbnail}));
+	 			   image: item.dataValues.image_link}));
 };
 
 module.exports = router;
