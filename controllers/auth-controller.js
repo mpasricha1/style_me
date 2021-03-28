@@ -19,6 +19,17 @@ router.get("/logout", (req, res ) =>{
 	res.redirect("/");
 });
 
+router.get('/auth/google', 
+  passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+router.get('/auth/google/callback', 
+  passport.authenticate('google', { successRedirect : '/authenticated', failureRedirect: '/login' }),
+  function(req, res) {
+  	console.log("IN THIS CODE")
+    // Successful authentication, redirect success.
+    res.redirect('/authenticated');
+  });
+
 router.post("/signup", (req,res) =>{
 	console.log(req.body)
 	db.User.create({

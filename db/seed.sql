@@ -1,13 +1,17 @@
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Tops", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Jeans", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Dress", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Pants", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Shoes", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Handbags", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Accessories", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Skirt", NOW(), NOW()); 
-INSERT INTO categories(category_name, createdAt, updatedAt, ) VALUES("Shorts", NOW(), NOW());
+DELETE FROM categories;
+ALTER TABLE categories AUTO_INCREMENT = 1;
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Tops", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Jeans", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Dress", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Pants", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Shoes", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Handbags", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Accessories", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Skirt", NOW(), NOW()); 
+INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Shorts", NOW(), NOW());
 
+DELETE FROM items;
+ALTER TABLE items AUTO_INCREMENT = 1;
 INSERT INTO Items(item_name, product_link, image_link, image_thumbnail, createdAt, updatedAt, CategoryId, UserId)
 VALUES('test cat', NULL, 'http://res.cloudinary.com/dnx8v0ryu/image/upload/v1616877775/w8pes8b8cpzqsluthdbd.jpg', 'https://res.cloudinary.com/dnx8v0ryu/image/upload/c_limit,h_60,w_90/v1616877775/w8pes8b8cpzqsluthdbd.jpg', NOW(), NOW(), NULL, '1');
 INSERT INTO Items(item_name, product_link, image_link, image_thumbnail, createdAt, updatedAt, CategoryId, UserId)

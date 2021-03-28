@@ -7,30 +7,22 @@ module.exports = (sequelize, DataTypes) =>{
 			allowNull: false 
 		}, 
 		first_name:{
-			type: DataTypes.STRING(25), 
-			allowNull: false
+			type: DataTypes.STRING(25)
 		}, 
 		last_name: {
-			type: DataTypes.STRING(25),
-			allowNull: false
+			type: DataTypes.STRING(25)
 		}, 
 		email: {
-			type: DataTypes.STRING(25), 
-			allowNull: false, 
+			type: DataTypes.STRING(25),
 			unique: true, 
 			validate: {
 				isEmail: true
 			}
 		}, 
 		password: {
-			type: DataTypes.STRING(255), 
-			allowNull: false
+			type: DataTypes.STRING(255)
 		},
-		// status: {
-		// 	type: DataTypes.ENUM("active", "inactive"), 
-		// 	defaultValue: "active"
-		// },
-		// last_login: DataTypes.DATE,
+		google_id: DataTypes.STRING(50), 
 		age: DataTypes.INTEGER, 
 		gender: DataTypes.STRING(15)
 	});
@@ -39,7 +31,9 @@ module.exports = (sequelize, DataTypes) =>{
 		return bcrypt.compareSync(password, this.password); 
 	};
 	User.addHook("beforeCreate", (user) =>{
-		user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
+		if(user.password){
+			user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
+		};
 	});
 
 	User.associate = (models) => {models.User.hasMany(models.Item, {onDelete: "cascade"})};

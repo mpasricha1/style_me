@@ -32,19 +32,19 @@ router.post("/addnew", isAuthenticated, (req,res) =>{
 router.get("/buildoutfit", async (req,res) =>{
 	try{
 		if(req.session.cat_id){
-			var items = await getAllItemsByCategory(req.session.cat_id);
+			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
 			items = mapItems(items);
 		}
 		let categories = await getAllCategories(); 
 		categories = mapCategories(categories);
-	
+		
 		res.render("buildOutfit", {categories: categories, newOutfititems: items} );
 	}catch(err){
 		if(err) return res.status(500).end();
 	}
 });
 
-router.post("/buildoutfit/", (req, res) =>{
+router.post("/buildoutfit", (req, res) =>{
 	req.session.cat_id = req.body.id;  
 	res.redirect("/buildoutfit")
 });
@@ -54,13 +54,13 @@ const getAllCategories = () => {
 		attributes: ["id", "category_name"]
 	})
 };
-const mapCategories = (categories) =>{
+const mapCategories = (categories) => {
 	return categories.map(category => 
 	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
 };
-const getAllItemsByCategory = (id) =>{
+const getAllItemsByCategory = (cat_id, user_id) =>{
 	return db.Item.findAll({
-		include: [{ model: db.Categories, where: { id: id }}]
+		where: {CategoryId: cat_id, userId: user_id}
 	});
 };
 const mapItems = (items) =>{
