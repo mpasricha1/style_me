@@ -39,7 +39,7 @@ passport.use(new GoogleStrategy({
   		if(!dbUser){
   			var emailValue = await db.Counters.findOne({ 
   				attributes: ["value"], 
-  				where: {counter_name: "google_email"}
+  				where: {counter_name: "google email"}
   			}); 
 
   			let data = await db.User.create({
@@ -51,7 +51,7 @@ passport.use(new GoogleStrategy({
   			profile.google_id = profile.id; 
   			profile.id = data.id;
   			await db.Counters.update({value: emailValue.dataValues.value += 1},{
-  				where: {counter_name: "google_email"}});
+  				where: {counter_name: "google email"}});
   		}else{
   			profile.google_id = profile.id; 
   			profile.id = dbUser.dataValues.id;
