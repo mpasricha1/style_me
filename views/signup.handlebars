@@ -1,8 +1,13 @@
-<form class="signup mb-3">
-    <div class="container">
+        <div class="imgcontainer">
         <h1 id="logo">Style Me</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr />
+        <img
+        src="../public/assets/images/Style Me.png"
+        alt="Style_me logo" class="style_me_logo" />
+        </div>
+<form class="signup mb-3">
+    <div class="container" id="signupForm">
+        {{!-- <p>Please fill in this form to create an account.</p>
+        <hr /> --}}
         <div class="form-floating mb-3">
         <input type="text" class="form-control"id="first_name" placeholder="First Name" name="first_name" required />
         <label for="first_name" class="form-label">First Name</label>
@@ -21,9 +26,9 @@
         </div>
     </div>
 
-  <div class="btn_container d-flex justify-content-center">
+  <div class="btn_container_signup">
      <button type="submit" class="signupbtn btn btn-outline-secondary">Sign Up</button>
-     {{!-- <button type="button" class="cancelbtn" style="background-color: #F44336">Cancel</button> --}}
+
      <a href="/" class="cancelBtn btn btn-outline-secondary"  role="button">Cancel</a>
     </div>
 </form>

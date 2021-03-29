@@ -30,32 +30,34 @@ a:hover {
   border-color: transparent; 
 }
 
+
+
 .video-container {
-    height: 50vh;
-    position: relative;
-    overflow: hidden;
-    @media(min-width: 600px) {
-      height: 100vh;
-    }
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  @media(min-width: 600px) {
+    height: 100vh;
   }
+}
 
 #video-hero
-  {
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-  
-#captureVideo {
+{
+  object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
+#captureVideo {
+  
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
 input {
   margin: 10px;
 }
@@ -67,14 +69,31 @@ input {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 60%;
 }
+
+.imgcontainer {
+  margin: 40px;
+}
+
 .btn_container {
   padding: 10px;
+  display: block;
+}
+.btn_container_signup {
+  padding: 10px;
+  display: flex;
 }
 form {
   margin: 10px;
 }
 label {
   margin: 10px;
+}
+
+@media (min-width: 992px) {
+  .btn_container {
+    padding: 10px;
+    display: flex;
+  }
 }

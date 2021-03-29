@@ -1,10 +1,10 @@
-{{!-- <h2 style="margin: 10px 0px 0px 20px">Login Form</h2> --}}
 
 <form class="login form-group">
+  <h1 id="logo">Style Me</h1>
   <div class="imgcontainer">
     <!-- Will change logo once we have it defined -->
     <img
-      src="../public/assets/images/Style Me login.jpg"
+      src="../public/assets/images/Style Me.png"
       alt="Style_me logo" class="style_me_logo" />
   </div>
 
@@ -16,16 +16,21 @@
   {{/if}}
 
   <!-- Email and password input fields -->
-  <div class="container d-flex justify-content-center" id="input-fields">
-    {{!-- <label for="email">Email</label> --}}
-    <input type="text" class="form-control" placeholder="Enter email address" name="email" id="email-field" required />
-
-    {{!-- <label for="psw">Password</label> --}}
-    <input type="password" class="form-control" placeholder="Enter Password" name="psw" id="psw-field" required />
+  
+  {{!-- <div class="container d-flex justify-content-center" id="input-fields"> --}}
+  <div class="container" id="input-fields"></div>
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" placeholder="name@example.com" name="email" id="email-field" required />
+    <label for="email">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+    <input type="password" class="form-control" placeholder="password" name="psw" id="psw-field" required />
+    <label for="psw">Password</label>
+    </div>
   </div>
 
   <!-- Login and Home buttons -->
-  <div class="btn_container d-flex justify-content-center">
+  <div class="btn_container">
     <button type="submit" value="Login" id="login-btn" class="btn btn-outline-secondary">Login</button>
     <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
     {{!-- <button type="button" id="home-btn" class="btn btn-outline-secondary">Home</button> --}}
