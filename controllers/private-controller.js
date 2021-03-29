@@ -21,7 +21,7 @@ router.get("/addnew", isAuthenticated, async (req,res) =>{
 router.post("/addnew", isAuthenticated, (req,res) =>{
 	db.Item.create({
 		UserId: req.user.id, 
-		CategoryId: req.body.category_name, 
+		CategoryId: req.body.id, 
 		item_name: req.body.item_name, 
 		image_link: req.body.image, 
 		image_thumbnail: req.body.thumbnail

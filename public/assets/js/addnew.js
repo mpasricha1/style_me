@@ -29,9 +29,9 @@ document.getElementById("upload_widget").addEventListener(
   false
 );
 
-// When clicked on a category from the dropdown list, the id of that category 
+// When clicked on a category from the dropdown list, the id of that category
 // will be saved into variable named id.
-$("#category_name").on('change', function () {
+$("#category_name").on("change", function () {
   id = this.options[this.selectedIndex].id;
   //console.log(id);
 });
@@ -42,10 +42,10 @@ $("#addToCollection_Btn").on("click", function (event) {
   console.log(image);
 
   let itemData = {
+    id: id,
+    item_name: $("#item_name").val().trim(),
     image: image,
     thumbnail: thumbnail,
-    item_name: $("#item_name").val().trim(),
-    id: id,
   };
 
   console.log(itemData);
