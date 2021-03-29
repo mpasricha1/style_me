@@ -42,7 +42,7 @@ router.get("/buildoutfit", async (req,res) =>{
 		console.log(categories)
 		console.log(items)
 		console.log(catalogs)
-		res.render("buildOutfit", {categories: categories, newOutfititems: items, catalogs: catalogs} );
+		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs} );
 	}catch(err){
 		if(err) console.log(err)
 		//if(err) return res.status(500).end();
