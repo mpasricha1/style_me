@@ -1,8 +1,12 @@
-<div class="container">
-    <h2>Build Outfit</h2>
 
-    <label for='category'>Choose a category:</label>
-        <br />
+  <div class="header">
+      <img src='https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/ur6mjtwp5kdtntnxvxtp' class="img">
+      <h2>BUILD OUTFITs</h2>
+  </div>
+
+<div class="container">
+     
+    <label for='category'>Choose a Category</label>
         <select name='category' id='category_name'>
             {{#each categories}}
             <option id=“{{id}}” value=“{{category_name}}“>{{category_name}}</option>
@@ -27,7 +31,9 @@
         </div>
 
         <!--Drag items-->
-        <div class="col-sm-4" style="border: solid; border-color: lightgray">
+        
+        <div class="col-sm-4">
+             
             <div id="DragImg" style="
               max-width: max-content;
               margin-bottom: 20%;
@@ -57,3 +63,4 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="../public/assets/css/buildOutfit.css">
