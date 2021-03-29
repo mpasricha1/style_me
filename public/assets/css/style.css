@@ -17,7 +17,13 @@ p {
     
 }
 a:hover {
-    opacity: 20%;
+  background-color: #F5DF4D;
+  opacity: 20%;
+}
+.btn-outline-secondary:hover {
+  color:#939597;
+  background-color: #F5DF4D;
+  border-color: transparent; 
 }
 
 .video-container {
