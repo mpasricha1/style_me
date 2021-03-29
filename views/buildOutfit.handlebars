@@ -1,5 +1,13 @@
 <div class="container">
     <h2>Build Outfit</h2>
+
+    <label for='category'>Choose a category:</label>
+        <br />
+        <select name='category' id='category_name'>
+            {{#each categories}}
+            <option id=“{{id}}” value=“{{category_name}}“>{{category_name}}</option>
+            {{/each}}
+        </select>
 </div>
 <div class="container">
     <div class="row">
