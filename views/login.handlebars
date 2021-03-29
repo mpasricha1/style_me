@@ -17,19 +17,19 @@
 
   <!-- Email and password input fields -->
   <div class="container" id="input-fields">
-    <label for="email"><b>Email</b></label>
+    {{!-- <label for="email"><b>Email</b></label> --}}
     <input type="text" placeholder="Enter email address" name="email" id="email-field" required />
 
-    <label for="psw"><b>Password</b></label>
+    {{!-- <label for="psw"><b>Password</b></label> --}}
     <input type="password" placeholder="Enter Password" name="psw" id="psw-field" required />
   </div>
 
   <!-- Login and Home buttons -->
   <div class="btn_container">
-    <button type="submit" value="Login" id="login-btn">Login</button>
+    <button type="submit" value="Login" id="login-btn" class="btn btn-outline-secondary">Login</button>
     <br />
-     <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> Sign In with Google</a>
-    <button type="button" id="home-btn" style="background-color: #f44336">
+     <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
+    <button type="button" id="home-btn" class="btn btn-outline-secondary">
       Home
     </button>
   </div>
