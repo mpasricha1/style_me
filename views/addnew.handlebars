@@ -15,9 +15,14 @@
         <input id="item_name" type="text" name="item_Name" placeholder="Item name" />
         <br />
 
-        <label for="category">Category Name</label>
+        <label for="category">Choose a category:</label>
+        <br />
+        <select name="category" id="category_name">
+            {{#each categories}}
+            <option id="{{id}}" value="{{category_name}}">{{category_name}}</option>
+            {{/each}}
+        </select>
 
-        <input id="category_name" type="text" name="category" placeholder="Category Name" />
     </div>
 
     <!-- Add to collection button -->
