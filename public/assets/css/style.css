@@ -12,12 +12,21 @@ p {
 }
 .btn {
     width: 50%;
-    padding: 10%;
+    padding: 10px;
     margin: 10px;
     
 }
+.btn:hover {
+  background-color: #F5DF4D;
+  opacity: 100%;
+}
 a:hover {
-    opacity: 20%;
+  background-color: #F5DF4D;
+  opacity: 100%;
+}
+.btn-outline-secondary:hover {
+  /* color:#F5DF4D; */
+  border-color: transparent; 
 }
 
 .video-container {
@@ -40,10 +49,25 @@ a:hover {
   }
   
 #captureVideo {
-    /* object-fit: contain; */
-    /* position: fixed; */
-    height: auto;
+
+    height: 100%;
     width: 100%;
     top: 0;
     left: 0;
   }
+input {
+  margin: 10px;
+}
+.form-control{
+  width: 80%;
+  
+}
+.style_me_logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.btn_container {
+  padding: 10px;
+}

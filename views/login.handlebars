@@ -1,10 +1,10 @@
-<h2 style="margin: 10px 0px 0px 20px">Login Form</h2>
+{{!-- <h2 style="margin: 10px 0px 0px 20px">Login Form</h2> --}}
 
-<form class="login">
+<form class="login form-group">
   <div class="imgcontainer">
     <!-- Will change logo once we have it defined -->
     <img
-      src="https://media.istockphoto.com/photos/dressing-room-in-bright-colors-closet-compartment-3d-illustration-picture-id1002114190?s=612x612"
+      src="../public/assets/images/Style Me login.jpg"
       alt="Style_me logo" class="style_me_logo" />
   </div>
 
@@ -16,21 +16,18 @@
   {{/if}}
 
   <!-- Email and password input fields -->
-  <div class="container" id="input-fields">
-    {{!-- <label for="email"><b>Email</b></label> --}}
-    <input type="text" placeholder="Enter email address" name="email" id="email-field" required />
+  <div class="container d-flex justify-content-center" id="input-fields">
+    {{!-- <label for="email">Email</label> --}}
+    <input type="text" class="form-control" placeholder="Enter email address" name="email" id="email-field" required />
 
-    {{!-- <label for="psw"><b>Password</b></label> --}}
-    <input type="password" placeholder="Enter Password" name="psw" id="psw-field" required />
+    {{!-- <label for="psw">Password</label> --}}
+    <input type="password" class="form-control" placeholder="Enter Password" name="psw" id="psw-field" required />
   </div>
 
   <!-- Login and Home buttons -->
-  <div class="btn_container">
+  <div class="btn_container d-flex justify-content-center">
     <button type="submit" value="Login" id="login-btn" class="btn btn-outline-secondary">Login</button>
-    <br />
-     <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
-    <button type="button" id="home-btn" class="btn btn-outline-secondary">
-      Home
-    </button>
+    <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
+    <button type="button" id="home-btn" class="btn btn-outline-secondary">Home</button>
   </div>
 </form>
