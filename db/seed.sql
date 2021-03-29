@@ -12,6 +12,11 @@ INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Shorts", NOW
 
 INSERT INTO counters(google_email, createdAt, updatedAt) VALUES(1, NOW(), NOW());
 
+INSERT INTO catalogs(catalog_name, createdAt, updatedAt) VALUES("Summer", NOW(), NOW())
+INSERT INTO catalogs(catalog_name, createdAt, updatedAt) VALUES("Fall", NOW(), NOW())
+INSERT INTO catalogs(catalog_name, createdAt, updatedAt) VALUES("Spring", NOW(), NOW())
+INSERT INTO catalogs(catalog_name, createdAt, updatedAt) VALUES("Winter", NOW(), NOW())
+
 DELETE FROM items;
 ALTER TABLE items AUTO_INCREMENT = 1;
 INSERT INTO Items(item_name, product_link, image_link, image_thumbnail, createdAt, updatedAt, CategoryId, UserId)

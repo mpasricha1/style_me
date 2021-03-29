@@ -37,8 +37,11 @@ router.get("/buildoutfit", async (req,res) =>{
 		}
 		let categories = await getAllCategories(); 
 		categories = mapCategories(categories);
+		let catalogs = await getAllCatalogs(); 
+		// catalogs = mapCatalogs(catalogs);
 		console.log(categories)
 		console.log(items)
+		// console.log(catalogs)
 		res.render("buildOutfit", {categories: categories, newOutfititems: items} );
 	}catch(err){
 		if(err) return res.status(500).end();
@@ -46,7 +49,8 @@ router.get("/buildoutfit", async (req,res) =>{
 });
 
 router.post("/buildoutfit", (req, res) =>{
-	req.session.cat_id = req.body.id;  
+	req.session.cat_id = req.body.cat_id; 
+	console.log(req.body.id)
 	res.redirect("/buildoutfit")
 });
 
@@ -58,6 +62,15 @@ const getAllCategories = () => {
 const mapCategories = (categories) => {
 	return categories.map(category => 
 	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
+};
+const getAllCatalogs = () => {
+	return db.Catalogs.findAll({
+		attributes: ["id", "catalog_name"]
+	})
+}
+const mapCatalogs = (catalogs) => {
+	return categories.map(category => 
+	 			({id: catalog.dataValues.id, catalog: catalog.dataValues.catalog_name}));
 };
 const getAllItemsByCategory = (cat_id, user_id) =>{
 	return db.Item.findAll({

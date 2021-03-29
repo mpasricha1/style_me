@@ -33,13 +33,19 @@
         
         <div class="row">
             <div class="container">                
-            <form id="addItem">
+            <form id="addOutfit">
             <div class="row">
                 <div class="col-sm-6">
-                    <!--search buttons for catalog name and outfits followed by save button-->
-                    <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
-                    <input type="search" class="form-control ds-input" id="catalog-input" placeholder="Catalog Name"
-                            style="position: relative; vertical-align: top" />
+                    <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu" id="menu">
+                        {{#each catalogs}}
+                            <li><a class="dropdown-item" href="" id={{id}}>{{catalog}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
                 </div>
                 <div class="col-sm-6">
                     <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
@@ -51,9 +57,10 @@
                     Save Outfit
                 </button>
             </div>
-            </div>
+        </div>
+        <div class="row">
+            <ul class= "list-group" id="outfitlist">
+            </ul>
         </div>
     </div>
-    </div>
-</div>
 </div>
