@@ -37,14 +37,15 @@ router.get("/buildoutfit", async (req,res) =>{
 		}
 		let categories = await getAllCategories(); 
 		categories = mapCategories(categories);
-		let catalogs = await getAllCatalogs(); 
-		// catalogs = mapCatalogs(catalogs);
+		let catalogs = await getAllCatalogs(req.user.id); 
+		catalogs = mapCatalogs(catalogs);
 		console.log(categories)
 		console.log(items)
-		// console.log(catalogs)
-		res.render("buildOutfit", {categories: categories, newOutfititems: items} );
+		console.log(catalogs)
+		res.render("buildOutfit", {categories: categories, newOutfititems: items, catalogs: catalogs} );
 	}catch(err){
-		if(err) return res.status(500).end();
+		if(err) console.log(err)
+		//if(err) return res.status(500).end();
 	}
 });
 
@@ -63,13 +64,16 @@ const mapCategories = (categories) => {
 	return categories.map(category => 
 	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
 };
-const getAllCatalogs = () => {
-	return db.Catalogs.findAll({
-		attributes: ["id", "catalog_name"]
+const getAllCatalogs = (user_id) => {
+	return db.Catalog.findAll({
+		attributes: ["id", "catalog_name"], 
+		where: {
+			UserId: user_id
+		}
 	})
-}
+};
 const mapCatalogs = (catalogs) => {
-	return categories.map(category => 
+	return catalogs.map(catalog => 
 	 			({id: catalog.dataValues.id, catalog: catalog.dataValues.catalog_name}));
 };
 const getAllItemsByCategory = (cat_id, user_id) =>{
