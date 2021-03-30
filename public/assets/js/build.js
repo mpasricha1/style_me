@@ -37,15 +37,4 @@ $(document).ready(function() {
           location.reload();
       });
     });
-
-
-    outfitForm.on("submit", function (event) {
-      event.preventDefault();
-
-      $.post("/addoutfit", {id: category, name: outfit_name.val()}
-        ).then( () =>{
-         location.reload();
-        })
-      
-    });
 });
