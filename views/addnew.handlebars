@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 <!-- Image should be displayed in img tag -->
-<img id="img" src="" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
+<img id="img" src="https://images.freeimages.com/images/large-previews/373/blusas-1-1193003.jpg" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
 <!-- Photo input fields -->
 <div class="photo-input-fields">
     <div>
@@ -15,9 +15,14 @@
         <input id="item_name" type="text" name="item_Name" placeholder="Item name" />
         <br />
 
-        <label for="category">Category Name</label>
+        <label for="category">Choose a category:</label>
+        <br />
+        <select name="category" id="category_name">
+            {{#each categories}}
+            <option id="{{id}}" value="{{category}}">{{category}}</option>
+            {{/each}}
+        </select>
 
-        <input id="category_name" type="text" name="category" placeholder="Category Name" />
     </div>
 
     <!-- Add to collection button -->
