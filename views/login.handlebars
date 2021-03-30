@@ -1,10 +1,10 @@
-<h2 style="margin: 10px 0px 0px 20px">Login Form</h2>
 
-<form class="login">
+<form class="login form-group">
+  <h1 id="logo">Style Me</h1>
   <div class="imgcontainer">
     <!-- Will change logo once we have it defined -->
     <img
-      src="https://media.istockphoto.com/photos/dressing-room-in-bright-colors-closet-compartment-3d-illustration-picture-id1002114190?s=612x612"
+      src="../public/assets/images/Style Me.png"
       alt="Style_me logo" class="style_me_logo" />
   </div>
 
@@ -16,21 +16,24 @@
   {{/if}}
 
   <!-- Email and password input fields -->
+  
+  {{!-- <div class="container d-flex justify-content-center" id="input-fields"> --}}
   <div class="container" id="input-fields">
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter email address" name="email" id="email-field" required />
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw-field" required />
+    <div class="form-floating mb-3">
+    <input type="text" class="form-control" placeholder="name@example.com" name="email" id="email-field" required />
+    <label for="email">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+    <input type="password" class="form-control" placeholder="password" name="psw" id="psw-field" required />
+    <label for="psw">Password</label>
+    </div>
   </div>
 
   <!-- Login and Home buttons -->
-  <div class="btn_container">
-    <button type="submit" value="Login" id="login-btn">Login</button>
-    <br />
-     <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> Sign In with Google</a>
-    <button type="button" id="home-btn" style="background-color: #f44336">
-      Home
-    </button>
+  <div class="btn_container ">
+    <button type="submit" value="Login" id="login-btn" class="btn btn-outline-secondary">Login</button>
+    <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
+    
+    <a href="/" class="btn btn-outline-secondary" role="button">Home</a>
   </div>
 </form>

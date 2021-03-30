@@ -1,5 +1,17 @@
+
+  <div class="header">
+      <img src='https://res-1.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/ur6mjtwp5kdtntnxvxtp' class="img">
+      <h2>BUILD OUTFITs</h2>
+  </div>
+
 <div class="container">
-    <h2>Build Outfit</h2>
+     
+    <label for='category'>Choose a Category</label>
+        <select name='category' id='category_name'>
+            {{#each categories}}
+            <option id=“{{id}}” value=“{{category_name}}“>{{category_name}}</option>
+            {{/each}}
+        </select>
 </div>
 <div class="container">
     <div class="row">
@@ -19,7 +31,9 @@
         </div>
 
         <!--Drag items-->
-        <div class="col-sm-4" style="border: solid; border-color: lightgray">
+        
+        <div class="col-sm-4">
+             
             <div id="DragImg" style="
               max-width: max-content;
               margin-bottom: 20%;
@@ -33,14 +47,13 @@
             </div>
         </div>
         <div class="col-sm-4">
-        <form id="addItem">
             <!--search buttons for catalog name and outfits followed by save button-->
             <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
-            <input type="search" class="form-control ds-input" id="catalog-input" placeholder="Catalog Name"
+            <input type="search" class="form-control ds-input" id="search-input" placeholder="Catalog Name"
                 style="position: relative; vertical-align: top" />
 
             <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
-            <input type="search" class="form-control ds-input" id="outfit-input" placeholder="Outfit Name"
+            <input type="search" class="form-control ds-input" id="search-input" placeholder="Outfit Name"
                 style="position: relative; vertical-align: top" />
 
             <button class="btn btn-primary" type="submit" style="margin-top: 20px">
@@ -49,3 +62,4 @@
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="../public/assets/css/buildOutfit.css">

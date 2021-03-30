@@ -1,0 +1,41 @@
+
+#logo {
+    Font-Family: 'Raleway', Sans-Serif;
+    Font-Size: 44px;
+    text-align: center;
+}
+p {
+    Font-Family: 'Open Sans', Sans-Serif;
+    Font-Size: 15px;
+    padding: 10px;
+
+}
+.btn {
+    width: 100%;
+    padding: 10%;
+}
+a:hover {
+    opacity: 20%;
+}
+
+.video-container {
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    @media(min-width: 600px) {
+      height: 100vh;
+    }
+  }
+  
+  video {
+    object-fit: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+#input-fields{
+    margin: 10px;
+}
+  
