@@ -1,10 +1,10 @@
-var catalogID = "";
-
 $(document).ready(function() {
     // Getting references to our form and inputs
     const outfitForm = $("#addOutfit");
-    const category = $("#catalog-input");
     const passwordInput = $("#outfit-input");
+    var category = $("#catalog-input");
+    var outfit_name = $("#outfit-input")  ;
+    
 
     $("#menu li a").on("click", function(event){
       event.preventDefault();
@@ -19,18 +19,9 @@ $(document).ready(function() {
     $("#catalogs li a").on("click", function(event){
       event.preventDefault();
       console.log(this.id)
-      catalogId = this.id;
+      category = this.id;
     });
 
-    outfitForm.on("submit", function(event){
-      let outfit = {
-        name: $("#outfit-input").val(),
-        catalogID: catalogID,  
-        items: itemsIDs
-      }; 
-
-      console.log(outfit);
-    })
 
      $("#imageframe a").on("click", function(event){
       event.preventDefault();
@@ -51,10 +42,10 @@ $(document).ready(function() {
     outfitForm.on("submit", function (event) {
       event.preventDefault();
 
-      // $.post("/buildoutfit/", {id: category.val() }
-      //   ).then( () =>{
-      //    location.reload();
-      //   })
+      $.post("/addoutfit", {id: category, name: outfit_name.val()}
+        ).then( () =>{
+         location.reload();
+        })
       
     });
 });
