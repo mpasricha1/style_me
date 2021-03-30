@@ -9,14 +9,13 @@
   </div>
 
   <!-- Login error should display if email or psw are invalid -->
-  {{#if message}}
+  {{!-- {{#if message}}
     <div class="login-error-container">
-      <p id="login-error" style="opacity: 1; background-color: red; width: fit-content">{{message}}</p>
+      <p id="login-error" style="opacity: 1; align: center; width: fit-content">{{message}}</p>
     </div>
-  {{/if}}
+  {{/if}} --}}
 
   <!-- Email and password input fields -->
-  
   {{!-- <div class="container d-flex justify-content-center" id="input-fields"> --}}
   <div class="container" id="input-fields">
     <div class="form-floating mb-3">
@@ -27,6 +26,12 @@
     <input type="password" class="form-control" placeholder="password" name="psw" id="psw-field" required />
     <label for="psw">Password</label>
     </div>
+    <!-- Login error should display if email or psw are invalid -->
+    {{#if message}}
+    <div class="login-error-container">
+      <p id="login-error" style="opacity: 1; color: #F5DF4D; width: fit-content">{{message}}</p>
+    </div>
+  {{/if}}
   </div>
 
   <!-- Login and Home buttons -->
