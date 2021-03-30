@@ -30,15 +30,6 @@ router.post("/addnew", isAuthenticated, (req, res) => {
   res.redirect("/addnew");
 });
 
-router.get("/buildoutfit", async (req, res) => {
-  try {
-    if (req.session.cat_id) {
-      var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
-      items = mapItems(items);
-    }
-    let categories = await getAllCategories();
-    categories = mapCategories(categories);
-
 router.get("/buildoutfit", async (req,res) =>{
 	try{
 		if(req.session.cat_id){
@@ -75,7 +66,7 @@ router.post("/staging", async (req,res) => {
 	await insertStaging(req.body.item); 
 	res.redirect("/buildoutfit")
 
-})
+});
 
 const getAllCategories = () => {
   return db.Categories.findAll({
@@ -115,7 +106,7 @@ const insertStaging = (item) => {
 		img: item.img, 
 		name: item.name
 	})
-}
+};
 const getAllItemsByCategory = (cat_id, user_id) =>{
 	return db.Item.findAll({
 		where: {CategoryId: cat_id, userId: user_id}
