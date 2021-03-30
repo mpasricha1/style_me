@@ -88,19 +88,6 @@ const mapCategories = (categories) => {
     category: category.dataValues.category_name,
   }));
 };
-<<<<<<< HEAD
-const getAllItemsByCategory = (cat_id, user_id) => {
-  return db.Item.findAll({
-    where: { CategoryId: cat_id, userId: user_id },
-  });
-};
-const mapItems = (items) => {
-  return items.map((item) => ({
-    id: item.dataValues.id,
-    item_name: item.dataValues.item_name,
-    thumbnail: item.dataValues.image_thumbnail,
-  }));
-=======
 const getAllCatalogs = (user_id) => {
 	return db.Catalog.findAll({
 		attributes: ["id", "catalog_name"], 
@@ -143,7 +130,6 @@ const mapStaging = (items) =>{
 	return items.map(item => 
 	 			({id: item.dataValues.item_id, item_name: item.dataValues.name, 
 	 			   image: item.dataValues.img}));
->>>>>>> d482e4133119f5ca3e06b0e395587d1b500e1d07
 };
 
 module.exports = router;
