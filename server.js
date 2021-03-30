@@ -16,7 +16,7 @@ app.use(express.json());
 app.use('/public',express.static('public'));
 
 app.engine("handlebars", exphbs({ defaultLayout: "main"})); 
-app.set("view engine", "handlebars"); 
+app.set("view engine", "handlebars");
 
 app.use(session({ secret: process.env.SECRET_KEY, resave:true, saveUninitialized: true}))
 app.use(passport.initialize());  

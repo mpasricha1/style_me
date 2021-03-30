@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Build Outfit</h2>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <div class="container">
+            <div class="row">
+                <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
+                <input type="search" class="form-control ds-input" id="search-input" placeholder="Search Outfits"style="position: relative; vertical-align: top" />
+            </div>
+            <div class="row">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu" id="menu">
+                        {{#each categories}}
+                            <li><a class="dropdown-item" href="" id={{id}}>{{category}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            {{#if newOutfititems}}
+                {{#each newOutfititems }}
+                    {{> clothesCard}}
+                {{/each}}
+                {{else}}
+                    <div> Sorry no outfits items found</div>
+            {{/if}}
+        </div>
+    </div>
+    <div class="col-sm-10">
+        
+        <div class="row">
+            <div class="container">                
+            <form id="addOutfit">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                    </button>
+                    <ul class="dropdown-menu" id="catalogs">
+                        {{#each catalogs}}
+                            <li><a class="dropdown-item" href="" id={{id}}>{{catalog}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                </div>
+                <div class="col-sm-6">
+                    <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
+                    <input type="search" class="form-control ds-input" id="outfit-input" placeholder="Outfit Name"
+                    style="position: relative; vertical-align: top" />
+                </div>
+            </div>
+                <button class="btn btn-primary" type="submit" style="margin-top: 20px">
+                    Save Outfit
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <ul class= "list-group" id="outfitlist">
+                {{#if staging}}
+                     {{#each staging }}
+                        <li class="list-group-item">{{staging}}</li>
+                    {{/each}}
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+</div>

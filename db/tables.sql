@@ -15,7 +15,7 @@ CREATE TABLE User (
 
 CREATE TABLE Catalog (
   id INT AUTO_INCREMENT NOT NULL,
-  catalog_name VARCHAR(50) NOT NULL, 
+  catalog_name VARCHAR(50) NOT NULL
   PRIMARY KEY(id)
 );
 
