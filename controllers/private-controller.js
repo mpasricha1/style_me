@@ -66,6 +66,7 @@ router.post("/staging", isAuthenticated, async (req,res) => {
 router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  	let items = await getAllStaging();
  	items = mapStaging(items); 
+ 	
  	let catalog_id = req.body.id;
  	let outfit_name = req.body.name; 
 
