@@ -25,7 +25,6 @@
     "sequelize": "^6.6.2"
   },
   "keywords": [],
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mpasricha1/style_me.git"
