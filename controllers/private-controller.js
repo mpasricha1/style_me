@@ -68,38 +68,38 @@ router.post("/staging", async (req,res) => {
 
 });
 
-const getAllCategories = () => {
-  return db.Categories.findAll({
-    attributes: ["id", "category_name"],
-  });
-};
+// const getAllCategories = () => {
+//   return db.Categories.findAll({
+//     attributes: ["id", "category_name"],
+//   });
+// };
 
 //-------------------------------test
-// router.get("/catalog", async (req,res) =>{
-// 	try{
-// 		if(req.session.cat_id){
-// 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
-// 			items = mapItems(items);
-// 		}
-// 		let categories = await getAllCategories(); 
-// 		categories = mapCategories(categories);
+router.get("/catalog", isAuthenticated, async (req,res) =>{
+	try{
+		if(req.session.cat_id){
+			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
+			items = mapItems(items);
+		}
+		let categories = await getAllCategories(); 
+		categories = mapCategories(categories);
 		
-// 		res.render("catalog", {categories: categories, newOutfititems: items} );
-// 	}catch(err){
-// 		if(err) return res.status(500).end();
-// 	}
-// });
+		res.render("catalog", {categories: categories, newOutfititems: items} );
+	}catch(err){
+		if(err) return res.status(500).end();
+	}
+});
 
-// router.post("/catalog", (req, res) =>{
-// 	req.session.cat_id = req.body.id;  
-// 	res.redirect("/catalog")
-// });
+router.post("/catalog",  isAuthenticated, (req, res) =>{
+	req.session.cat_id = req.body.id;  
+	res.redirect("/catalog")
+});
 
-// const getAllCategories = () => {
-// 	return db.Categories.findAll({
-// 		attributes: ["id", "category_name"]
-// 	})
-// };
+const getAllCategories = () => {
+	return db.Categories.findAll({
+		attributes: ["id", "category_name"]
+	})
+};
 
 //---------------------------------------test
 const mapCategories = (categories) => {
