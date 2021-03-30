@@ -19,6 +19,7 @@ router.get("/addnew", isAuthenticated, async (req,res) =>{
 }); 
 
 router.post("/addnew", isAuthenticated, (req,res) =>{
+	console.log("REQ BODY ", req.body);
 	db.Item.create({
 		UserId: req.user.id, 
 		CategoryId: req.body.id, 
@@ -26,6 +27,8 @@ router.post("/addnew", isAuthenticated, (req,res) =>{
 		image_link: req.body.image, 
 		image_thumbnail: req.body.thumbnail
 	});
+
+
 	res.redirect("/addnew");
 }); 
 

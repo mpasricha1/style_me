@@ -45,7 +45,7 @@ $("#addToCollection_Btn").on("click", function (event) {
     id: id,
     item_name: $("#item_name").val().trim(),
     image: image,
-    thumbnail: thumbnail,
+    thumbnail: thumbnail
   };
 
   console.log(itemData);
