@@ -26,18 +26,8 @@ router.post("/addnew", isAuthenticated, (req, res) => {
     image_link: req.body.image,
     image_thumbnail: req.body.thumbnail,
   });
-
   res.redirect("/addnew");
 });
-
-router.get("/buildoutfit", async (req, res) => {
-  try {
-    if (req.session.cat_id) {
-      var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
-      items = mapItems(items);
-    }
-    let categories = await getAllCategories();
-    categories = mapCategories(categories);
 
 router.get("/buildoutfit", async (req,res) =>{
 	try{
