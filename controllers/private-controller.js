@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require("../models");
 
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const mapper = require("../utils/mappers");
 
 router.get("/authenticated", isAuthenticated, (req, res) => {
   res.render("authenticated");
@@ -10,7 +11,7 @@ router.get("/authenticated", isAuthenticated, (req, res) => {
 router.get("/addnew", isAuthenticated, async (req, res) => {
   try {
     let categories = await getAllCategories();
-    categories = mapCategories(categories);
+    categories = mapper.mapCategories(categories);
 
     res.render("addnew", { categories });
   } catch (err) {
@@ -34,16 +35,17 @@ router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
 	try{
 		if(req.session.cat_id){
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
-			items = mapItems(items);
+			items = mapper.mapItems(items);
 		}
 		let categories = await getAllCategories(); 
 		let catalogs = await getAllCatalogs(req.user.id);
 		let staging = await getAllStaging();
 
 
-		catalogs = mapCatalogs(catalogs);
-		categories = mapCategories(categories);
-		staging = mapStaging(staging)
+		catalogs = mapper.mapCatalogs(catalogs);
+		categories = mapper.mapCategories(categories);
+		staging = mapper.mapStaging(staging)
+
 		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, staging: staging} );
 	}catch(err){
 		if(err) console.log(err)
@@ -65,8 +67,8 @@ router.post("/staging", isAuthenticated, async (req,res) => {
 });
 router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  	let items = await getAllStaging();
- 	items = mapStaging(items); 
- 	
+ 	items = mapper.mapStaging(items); 
+
  	let catalog_id = req.body.id;
  	let outfit_name = req.body.name; 
 
@@ -133,31 +135,10 @@ const insertCatalogItem = (catalog_id, outfit_id) =>{
 	})
 }
 
-
-
-const mapCategories = (categories) => {
-	return categories.map(category => 
-	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
-};
-
 const getAllItemsByCategory = (cat_id, user_id) =>{
 	return db.Item.findAll({
 		where: {CategoryId: cat_id, userId: user_id}
 	});
-};
-const mapCatalogs = (catalogs) => {
-	return catalogs.map(catalog => 
-	 			({id: catalog.dataValues.id, catalog: catalog.dataValues.catalog_name}));
-};
-const mapItems = (items) =>{
-	return items.map(item => 
-	 			({id: item.dataValues.id, item_name: item.dataValues.item_name, 
-	 			   image: item.dataValues.image_link}));
-};
-const mapStaging = (items) =>{
-	return items.map(item => 
-	 			({id: item.dataValues.item_id, item_name: item.dataValues.name, 
-	 			   image: item.dataValues.img}));
 };
 
 module.exports = router;
