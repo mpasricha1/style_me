@@ -1,3 +1,5 @@
+use style_me_db;
+
 DELETE FROM categories;
 ALTER TABLE categories AUTO_INCREMENT = 1;
 INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Tops", NOW(), NOW()); 
