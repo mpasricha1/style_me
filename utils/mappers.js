@@ -3,10 +3,6 @@ module.exports = {
 	return categories.map(category => 
 	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
 	}, 
-	mapCategories: (categories) => {
-	return categories.map(category => 
-	 			({id: category.dataValues.id, category: category.dataValues.category_name}));
-	},
 	 mapCatalogs: (catalogs) => {
 	return catalogs.map(catalog => 
 	 			({id: catalog.dataValues.id, catalog: catalog.dataValues.catalog_name}));

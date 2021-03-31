@@ -5,9 +5,6 @@ const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const mapper = require("../utils/mappers");
 
-router.get("/authenticated", isAuthenticated, (req, res) => {
-	res.render("authenticated");
-});
 router.get("/addnew", isAuthenticated, async (req, res) => {
   try {
     let categories = await getAllCategories();
@@ -38,7 +35,7 @@ router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
 			items = mapper.mapItems(items);
 		}
 		if(req.session.outfit_name){
-			var staging = await getOutfit(req.session.outfit_name); 
+			var staging = await getOutfitItems(req.session.outfit_name); 
 		}else{
 			var staging = await getAllStaging();
 
@@ -76,24 +73,30 @@ router.post("/staging", isAuthenticated, async (req,res) => {
 
 });
 router.post("/addoutfit", isAuthenticated, async (req, res) =>{
- 	let items = await getAllStaging();
- 	items = mapper.mapStaging(items); 
+	try{
+		let items = await getAllStaging();
+ 		items = mapper.mapStaging(items); 
 
- 	let catalog_id = req.body.id;
- 	let outfit_name = req.body.outfit_name; 
+ 		let catalog_id = req.body.id;
+ 		let outfit_name = req.body.outfit_name; 
 
- 	let result = await insertOutfit(outfit_name);
+ 		let result = await insertOutfit(outfit_name);
 
- 	await insertCatalogItem(catalog_id, result.dataValues.id);
+ 		await insertCatalogItem(catalog_id, result.dataValues.id);
  	
- 	items.forEach(item =>{
- 		insertOutfitItem(item, result.dataValues.id)
- 	})
+ 		items.forEach(item =>{
+ 			insertOutfitItem(item, result.dataValues.id)
+ 		});
 
- 	await deleteAllStaging();
+ 		await deleteAllStaging();
 
- 	res.redirect("/buildoutfit")
-})
+ 		res.redirect("/buildoutfit")
+	}catch(err){
+		if(err) console.log(err)
+		//if(err) return res.status(500).end();
+	};
+	
+});
 
 // const getAllCategories = () => {
 //   return db.Categories.findAll({
@@ -152,14 +155,8 @@ const getAllOutfits = (catId, userId) => {
 			}]
 		}]
 	})
-}
-
-const mapCategories = (categories) => {
-	return categories.map((category) => ({
-		id: category.dataValues.id,
-		category: category.dataValues.category_name,
-	}));
 };
+
 const getAllCatalogs = (user_id) => {
 	return db.Catalog.findAll({
 		attributes: ["id", "catalog_name"],
@@ -169,7 +166,7 @@ const getAllCatalogs = (user_id) => {
 	})
 };
 
-const getOutfit = (outfit_name) => {
+const getOutfitItems = (outfit_name) => {
 	return db.Outfit_item.findAll({ 
 		include: [{
 			model: db.Item, 
@@ -183,7 +180,8 @@ const getOutfit = (outfit_name) => {
 			attribute: ["outfit_name"]
 		}]
 	})
-}
+};
+
 const getAllStaging = () => {
 	return db.Outfit_staging.findAll();
 };
