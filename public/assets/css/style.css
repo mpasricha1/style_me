@@ -2,12 +2,21 @@ body {
   Font-Family: 'Open Sans', Sans-Serif;
   color:  #939597;
 }
+select {
+  color:  #939597;
+  margin-left: 10px;
+}
+h2 {
+  margin-left: 10px;
+}
 #logo {
     Font-Family: 'Raleway', Sans-Serif;
     Font-Size: 45px;
     text-align: center;
     text-decoration: none;
     color:  #939597;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 #logo:hover {
   background-color: transparent;
@@ -94,7 +103,8 @@ input {
 }
 
 .form-control{
-  width: 100%;  
+  width: 100%;
+  border: 1px solid #939597;  
 }
 
 
@@ -137,6 +147,16 @@ label {
 
 #description {
   margin: 20px;
+}
+#img {
+  border: 1px solid #939597;
+  width: 100%; 
+  height: auto;  
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#addToCollection_Btn {
+  margin-left: 0px;
 }
 
 
