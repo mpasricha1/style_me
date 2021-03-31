@@ -37,6 +37,9 @@ h2 {
 #upload_widget.btn {
   background-color: #F5DF4D; 
   color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 0;
 }
 #upload_widget.btn:hover {
   background-color: #939597;
@@ -45,6 +48,10 @@ h2 {
 .btn:hover {
   background-color: #F5DF4D;
   opacity: 100%;
+}
+a {
+  color: #939597;
+  text-decoration: none;
 }
 a:hover {
   background-color: #F5DF4D;
@@ -158,5 +165,8 @@ label {
 #addToCollection_Btn {
   margin-left: 0px;
 }
-
+/* #catalogContainer{
+  border: 1px solid #939597;
+}
+ */
 
