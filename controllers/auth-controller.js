@@ -6,7 +6,7 @@ const db = require("../models");
 router.post('/login', function(req, res, next) {
     passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) { return res.render('authenticated'); }
+        if (!user) { return res.render('catalog'); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             return res.json({detail: info});
@@ -23,11 +23,11 @@ router.get('/auth/google',
   passport.authenticate('google', { scope : ['profile', 'email'] }));
 
 router.get('/auth/google/callback', 
-  passport.authenticate('google', { successRedirect : '/authenticated', failureRedirect: '/login' }),
+  passport.authenticate('google', { successRedirect : '/catalog', failureRedirect: '/login' }),
   function(req, res) {
   	console.log("IN THIS CODE")
     // Successful authentication, redirect success.
-    res.redirect('/authenticated');
+    res.redirect('/catalog');
   });
 
 router.post("/signup", (req,res) =>{

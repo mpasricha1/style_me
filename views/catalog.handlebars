@@ -9,26 +9,30 @@
             </div>
             <div class="row">
                 <div class="dropdown">
-                    <div id = "menu">
+                    {{!-- <div id = "menu">
                         {{#each categories}}
                             <li><a class="dropdown-item" href="" id={{id}}>{{Catalogs}}</a></li>
                         {{/each}}
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
-            {{#if catalogID}}
-                {{#each catalogID }}
-                    {{> clothesCard}}
-                {{/each}}
+            <div id="catalog-div">
+                <ul class="list-group" id="cat-list">
+                {{#if catalogs}}
+                    {{#each catalogs }}
+                        <li class="list-group-item"> <a id={{id}} href="#">{{catalog}}</a></li>
+                    {{/each}}
                 {{else}}
-                    <div> Sorry no catalog found</div>
-            {{/if}}
+                        <div> Sorry no catalog found</div>
+                {{/if}}
+            </ul>
+            </div>
         </div>
+        
     </div>
     <div class="col-sm-2">
         <div class="container">
-
         </div>
     </div>
 </div>

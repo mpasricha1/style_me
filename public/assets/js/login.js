@@ -30,7 +30,7 @@ $(document).ready(function() {
         password: password
       })
         .then(function() {
-          window.location.replace("/authenticated");
+          window.location.replace("/catalog");
           // If there's an error, log the error
         })
         .catch(function(err) {
