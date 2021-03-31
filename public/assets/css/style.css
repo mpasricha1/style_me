@@ -25,6 +25,14 @@ body {
     margin: 5px;
     
 }
+#upload_widget.btn {
+  background-color: #F5DF4D; 
+  color: white;
+}
+#upload_widget.btn:hover {
+  background-color: #939597;
+  color: white; 
+}
 .btn:hover {
   background-color: #F5DF4D;
   opacity: 100%;
@@ -37,7 +45,7 @@ a:hover {
   border-color:  #939597;
 }
 .btn-outline-secondary:hover {
-  /* color:#F5DF4D; */
+
   border-color: transparent; 
 }
 
@@ -74,12 +82,21 @@ input {
   padding: 0%;
   width: 100%;
 }
-.form-control{
-  width: 100%;  
+#upload_widget, #addToCollection_Btn {
+  width: 100%
 }
 .form-floating {
   width: 80%;
 }
+
+#item_name_input.form-floating {
+  width: 100%;
+}
+
+.form-control{
+  width: 100%;  
+}
+
 
 .style_me_logo {
   display: block;
@@ -121,3 +138,5 @@ label {
 #description {
   margin: 20px;
 }
+
+
