@@ -53,6 +53,7 @@ h2 {
 .btn:hover {
   background-color: #F5DF4D;
   opacity: 100%;
+  border: none;
 }
 a {
   color: #939597;
@@ -67,11 +68,26 @@ a:hover {
 
 .btn-outline-secondary {
   border-color:  #939597;
+  color: #939597;
 }
-.btn-outline-secondary:hover {
-
+/* .btn-outline-secondary:hover {
   border-color: transparent; 
+} */
+/* buildOutfit page testing */
+/* .btn-check:active+.btn-outline-secondary, 
+.btn-check:checked+.btn-outline-secondary, 
+.btn-outline-secondary.dropdown-toggle.show {
+  color: #939597;
+  background-color: transparent;
+  border-color: #6c757d;
+} */
+/* .btn-outline-secondary.active {
+  background-color: transparent;
+} */
+.dropdown.btn {
+  width: 100%;
 }
+
 
 
 
