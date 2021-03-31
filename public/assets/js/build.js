@@ -1,9 +1,21 @@
 $(document).ready(function() {
     // Getting references to our form and inputs
     const outfitForm = $("#addOutfit");
-    const passwordInput = $("#outfit-input");
+    const searchForm = $("#searchOutfit");
     var category = $("#catalog-input");
-    var outfit_name = $("#outfit-input")  ;
+    var search = $("#search-input");
+    var catalog = "";
+    
+    var search_input = $("#search-input")
+
+    searchForm.on("submit", function(event) {
+      event.preventDefault();
+      console.log(search.val());
+      $.post("/searchoutfit", {outfit_name: search.val()}
+        ).then( () =>{
+          location.reload();
+        })
+    });
     
 
     $("#menu li a").on("click", function(event){
@@ -19,7 +31,7 @@ $(document).ready(function() {
     $("#catalogs li a").on("click", function(event){
       event.preventDefault();
       console.log(this.id)
-      category = this.id;
+      catalog = this.id;
     });
 
 

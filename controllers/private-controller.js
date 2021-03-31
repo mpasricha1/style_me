@@ -37,14 +37,20 @@ router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
 			items = mapper.mapItems(items);
 		}
+		if(req.session.outfit_name){
+			var staging = await getOutfit(req.session.outfit_name); 
+		}else{
+			var staging = await getAllStaging();
+
+		}
 		let categories = await getAllCategories(); 
 		let catalogs = await getAllCatalogs(req.user.id);
-		let staging = await getAllStaging();
 
-
+		
 		catalogs = mapper.mapCatalogs(catalogs);
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
+		
 
 		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, staging: staging} );
 	}catch(err){
@@ -55,9 +61,13 @@ router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
 
 router.post("/buildoutfit", isAuthenticated, (req, res) =>{
 	req.session.cat_id = req.body.cat_id; 
-	console.log(req.body.id)
-	res.redirect("/buildoutfit")
+	res.redirect("/buildoutfit");
 });
+
+router.post("/searchoutfit", isAuthenticated, (req, res) => {
+	req.session.outfit_name = req.body.outfit_name; 
+	res.redirect("/buildoutfit");
+})
 
 router.post("/staging", isAuthenticated, async (req,res) => {
 	console.log(req.body)
@@ -70,7 +80,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  	items = mapper.mapStaging(items); 
 
  	let catalog_id = req.body.id;
- 	let outfit_name = req.body.name; 
+ 	let outfit_name = req.body.outfit_name; 
 
  	let result = await insertOutfit(outfit_name);
 
@@ -99,6 +109,22 @@ const getAllCatalogs = (user_id) => {
 		}
 	})
 };
+
+const getOutfit = (outfit_name) => {
+	return db.Outfit_item.findAll({ 
+		include: [{
+			model: db.Item, 
+			required: true, 
+			attributes: ["id", "item_name", "image_link"]
+		},
+		{
+			model: db.Outfit, 
+			required: true, 
+			where: {outfit_name: outfit_name}, 
+			attribute: ["outfit_name"]
+		}]
+	})
+}
 const getAllStaging = () => {
 	return db.Outfit_staging.findAll();
 }; 

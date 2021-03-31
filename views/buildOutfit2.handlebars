@@ -4,10 +4,12 @@
 <div class="row">
     <div class="col-sm-2">
         <div class="container">
+        <form id="searchOutfit">
             <div class="row">
                 <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
                 <input type="search" class="form-control ds-input" id="search-input" placeholder="Search Outfits"style="position: relative; vertical-align: top" />
             </div>
+        </form>
             <div class="row">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,7 +40,7 @@
                 <div class="col-sm-6">
                     <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
+                        Catalogs
                     </button>
                     <ul class="dropdown-menu" id="catalogs">
                         {{#each catalogs}}
