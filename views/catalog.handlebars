@@ -1,0 +1,42 @@
+<div class="container" id="logo_container">
+  <a href="/" id="logo">Style Me</a>
+</div>
+
+<div class="container" id="catalogContainer">
+    <h2>Find Catalogs</h2>
+</div>
+<div class="row">
+    <div class="col-sm-10">
+        <div class="container">
+            <div class="row">
+                <span class="algolia-autocomplete" style="position: relative; display: inline-block; direction: ltr"></span>
+            </div>
+            <div class="row">
+                <div class="dropdown">
+                    <!--<div id = "menu">
+                        {{#each categories}}
+                            <li><a class="dropdown-item" href="" id={{id}}>{{Catalogs}}</a></li>
+                        {{/each}}
+                    </div> -->
+
+                </div>
+            </div>
+            <div id="catalog-div">
+                <ul class="list-group" id="cat-list">
+                {{#if catalogs}}
+                    {{#each catalogs }}
+                        <li class="list-group-item"> <a id={{id}} href="#">{{catalog}}</a></li>
+                    {{/each}}
+                {{else}}
+                        <div> Sorry no catalog found</div>
+                {{/if}}
+            </ul>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-sm-2">
+        <div class="container">
+        </div>
+    </div>
+</div>

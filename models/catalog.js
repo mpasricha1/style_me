@@ -10,7 +10,5 @@ module.exports = (sequelize, DataTypes) =>{
 		models.Catalog.hasMany(models.Catalog_item);
 		models.Catalog.belongsTo(models.User, {foreignKey: { allowNull: false}});
 	};
-
-	
 	return Catalog;
 }	

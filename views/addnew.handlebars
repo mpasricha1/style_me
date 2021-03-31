@@ -1,22 +1,67 @@
-<h1>Style Me Logo</h1>
-<p>Click the button to upload an existing photo or add a new one!</p>
+<div class="container" id="logo_container">
+    <a href="/" id="logo">Style Me</a>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <!-- Cloudinary button for uploading or adding a new photo -->
+            <button id="upload_widget" class="btn">Add an Item</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Details</h2>
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-sm-2">
+        <label for="category">Choose a category:</label>
+        <select name="category" id="category_name">
+            {{#each categories}}
+            <option id="{{id}}" value="{{category}}">{{category}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="col-sm-10">
+        <!-- Image should be displayed in img tag -->
+        <img id="img" src="../public/assets/images/PlaceholderGray2.png" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      
+    </div>
+    <div class="col-sm-10">
+        <!-- Photo input fields -->
+      <div id="item_name_input" class="form-floating mb-3">
+        <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
+        <label for="item_name">Item Name</label>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+     
+    </div>
+    <div class="col-sm-10">
+        <button id="addToCollection_Btn" class="btn btn-outline-secondary" type="submit">
+            Add to Collection
+        </button>
+    </div>
+  
+</div>
 
-<!-- Cloudinary button for uploading or adding a new photo -->
-<button id="upload_widget" class="cloudinary-button">Upload or Add</button>
-
-<h2>Details</h2>
-<!-- Image should be displayed in img tag -->
-<img id="img" src="https://images.freeimages.com/images/large-previews/373/blusas-1-1193003.jpg" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
+{{!-- <!-- Image should be displayed in img tag -->
+<img id="img" src="../public/assets/images/Style Me.png" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
 <!-- Photo input fields -->
 <div class="photo-input-fields">
     <div>
+        <div class="form-floating mb-3">
+        <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
         <label for="item_name">Item Name</label>
-
-        <input id="item_name" type="text" name="item_Name" placeholder="Item name" />
-        <br />
-
+        </div>
+        
         <label for="category">Choose a category:</label>
-        <br />
         <select name="category" id="category_name">
             {{#each categories}}
             <option id="{{id}}" value="{{category}}">{{category}}</option>
@@ -27,11 +72,13 @@
 
     <!-- Add to collection button -->
     <div>
-        <button id="addToCollection_Btn" class="cloudinary-button" type="submit" style="margin-top: 10px">
+        <button id="addToCollection_Btn" class="btn btn-outline-secondary" type="submit">
             Add to Collection
         </button>
     </div>
 </div>
+</div> --}}
+
 
 <!-- Cloudinary script -->
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>

@@ -15,7 +15,7 @@ CREATE TABLE User (
 
 CREATE TABLE Catalog (
   id INT AUTO_INCREMENT NOT NULL,
-  catalog_name VARCHAR(50) NOT NULL
+  catalog_name VARCHAR(50) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -61,4 +61,11 @@ CREATE TABLE catalog_item (
   PRIMARY KEY(id),
   FOREIGN KEY(catalog_id) REFERENCES Catalog(id),
   FOREIGN KEY(outfit_id) REFERENCES Outfit(id)
+);
+
+CREATE TABLE outfit_staging(
+  id INT AUTO_INCREMENT NOT NULL, 
+  item_id INT NOT NULL, 
+  img VARCHAR(255), 
+  name VARCHAR(50)
 );

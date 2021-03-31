@@ -1,22 +1,13 @@
 
 <form class="login form-group">
-  <h1 id="logo">Style Me</h1>
+  <div class="container" id="logo_container">
+  <a href="/" id="logo">Style Me</a>
+  </div>
   <div class="imgcontainer">
-    <!-- Will change logo once we have it defined -->
-    <img
-      src="../public/assets/images/Style Me.png"
-      alt="Style_me logo" class="style_me_logo" />
+    <img src="../public/assets/images/Style Me.png" alt="Style Me" class="style_me_logo" />
   </div>
 
-  <!-- Login error should display if email or psw are invalid -->
-  {{#if message}}
-    <div class="login-error-container">
-      <p id="login-error" style="opacity: 1; background-color: red; width: fit-content">{{message}}</p>
-    </div>
-  {{/if}}
-
   <!-- Email and password input fields -->
-  
   {{!-- <div class="container d-flex justify-content-center" id="input-fields"> --}}
   <div class="container" id="input-fields">
     <div class="form-floating mb-3">
@@ -27,13 +18,17 @@
     <input type="password" class="form-control" placeholder="password" name="psw" id="psw-field" required />
     <label for="psw">Password</label>
     </div>
+    <!-- Login error should display if email or psw are invalid -->
+    {{#if message}}
+    <div class="login-error-container">
+      <p id="login-error" style="opacity: 1; color: #F5DF4D; width: fit-content">{{message}}</p>
+    </div>
+  {{/if}}
   </div>
 
-  <!-- Login and Home buttons -->
+  <!-- Login and Sign in with Google buttons -->
   <div class="btn_container ">
     <button type="submit" value="Login" id="login-btn" class="btn btn-outline-secondary">Login</button>
-    <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span> Sign In with Google</a>
-    
-    <a href="/" class="btn btn-outline-secondary" role="button">Home</a>
+    <a href="/auth/google" class="btn btn-outline-secondary"><span class="fa fa-google"></span>Google</a>
   </div>
 </form>

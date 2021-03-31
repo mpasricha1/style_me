@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false
 		}
 	}); 
-	return Outfit;
-
 	Outfit.associate = (models) => {models.Outfit.hasMany(models.Outfit_item)};
+	return Outfit;
+	
 }
