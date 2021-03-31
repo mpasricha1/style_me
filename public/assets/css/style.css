@@ -5,7 +5,7 @@ body {
 #logo {
     Font-Family: 'Raleway', Sans-Serif;
     Font-Size: 45px;
-    text-align: right;
+    text-align: center;
     text-decoration: none;
     color:  #939597;
 }
@@ -22,7 +22,7 @@ body {
 .btn {
     width: 50%;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     
 }
 .btn:hover {
@@ -70,15 +70,17 @@ a:hover {
   left: 0;
 }
 input {
-  margin: 10px;
+  margin: 0px;
   padding: 0%;
   width: 100%;
 }
 .form-control{
-  width: 100%;
-  
-  
+  width: 100%;  
 }
+.form-floating {
+  width: 80%;
+}
+
 .style_me_logo {
   display: block;
   margin-left: auto;
@@ -91,14 +93,7 @@ input {
   margin-top: 20px;
 }
 
-.btn_container {
-  padding: 10px;
-  display: block;
-}
-.btn_container_signup {
-  padding: 10px;
-  display: flex;
-}
+
 form {
   margin: 10px;
 }
@@ -115,9 +110,14 @@ label {
 }
 
 
-@media (min-width: 992px) {
+
   .btn_container {
-    padding: 10px;
     display: flex;
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+#description {
+  margin: 20px;
 }
