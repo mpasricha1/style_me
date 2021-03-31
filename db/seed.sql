@@ -12,7 +12,7 @@ INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Accessories"
 INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Skirt", NOW(), NOW()); 
 INSERT INTO categories(category_name, createdAt, updatedAt) VALUES("Shorts", NOW(), NOW());
 
-INSERT INTO counters(counter_name, value, createdAt, updatedAt) VALUES('google_email',1, NOW(), NOW());
+INSERT INTO counters(counter_name, value, createdAt, updatedAt) VALUES("google_email", 1, NOW(), NOW());
 
 INSERT INTO catalogs(catalog_name, UserId, createdAt, updatedAt) VALUES("Summer", 1, NOW(), NOW());
 INSERT INTO catalogs(catalog_name, UserId, createdAt, updatedAt) VALUES("Fall", 1, NOW(), NOW());
