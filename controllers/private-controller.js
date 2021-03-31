@@ -141,13 +141,15 @@ const getAllOutfits = (catId, userId) => {
 		include: [{
 			model: db.Outfit,
 			required: true,
+			attributes: ["outfit_name","id"],
 			include: [{
 				model: db.Outfit_item,
 				required: true,
 				include: [{
 					model: db.Item,
 					required: true,
-					where: { userId: userId }
+					where: { userId: userId },
+					attributes: ["image_link"]
 				}]
 			}]
 		}]
