@@ -6,9 +6,11 @@ select {
   color:  #939597;
   margin-left: 10px;
 }
+
 h2 {
   margin-left: 10px;
 }
+
 #logo {
     Font-Family: 'Raleway', Sans-Serif;
     Font-Size: 45px;
@@ -28,15 +30,21 @@ h2 {
   align-items: center;
   justify-content: center
 }
+
 .btn {
     width: 50%;
     padding: 10px;
     margin: 5px;
     
 }
+
+/* addnew page buttons */
 #upload_widget.btn {
   background-color: #F5DF4D; 
   color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 0;
 }
 #upload_widget.btn:hover {
   background-color: #939597;
@@ -46,10 +54,17 @@ h2 {
   background-color: #F5DF4D;
   opacity: 100%;
 }
-a:hover {
-  background-color: #F5DF4D;
-  opacity: 100%;
+a {
+  color: #939597;
+  text-decoration: none;
 }
+/*catalog links to categories */
+a:hover {
+  background-color: transparent;
+  color: #F5DF4D;
+}
+
+
 .btn-outline-secondary {
   border-color:  #939597;
 }
@@ -108,12 +123,12 @@ input {
 }
 
 
-.style_me_logo {
+/* .style_me_logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
-}
+} */
 
 .imgcontainer {
   margin-bottom: 40px;
@@ -138,12 +153,12 @@ label {
 
 
 
-  .btn_container {
+.btn_container {
     display: flex;
     width: 76%;
     margin-left: auto;
     margin-right: auto;
-  }
+}
 
 #description {
   margin: 20px;
@@ -158,5 +173,8 @@ label {
 #addToCollection_Btn {
   margin-left: 0px;
 }
-
+/* #catalogContainer{
+  border: 1px solid #939597;
+}
+ */
 
