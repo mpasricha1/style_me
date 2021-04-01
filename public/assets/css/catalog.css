@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+h2 {
+    margin-top: 10px;
+}
+
 .list-group {
   position: relative;
   background-image: url("https://cdn.pixabay.com/photo/2017/05/13/12/40/fashion-2309519__340.jpg");

@@ -39,7 +39,7 @@ h2 {
 }
 
 /* addnew page buttons */
-#upload_widget.btn {
+#upload_widget.btn, .addNew {
   background-color: #F5DF4D; 
   color: white;
   margin-top: 30px;
@@ -50,6 +50,12 @@ h2 {
   background-color: #939597;
   color: white; 
 }
+
+
+/* :hover {
+  background-color: #939597;
+  color: white; 
+} */
 .btn:hover {
   background-color: #F5DF4D;
   opacity: 100%;
@@ -185,8 +191,9 @@ label {
   height: auto;  
   margin-bottom: 20px;
   margin-top: 20px;
-  text-
+  
 }
+
 #addToCollection_Btn {
   margin-left: 0px;
 }
@@ -204,4 +211,23 @@ label {
   color:gray;
   margin-top: 40px;
   margin-bottom: 30px;
+}
+
+/* Styling for buildoutfit page
+Card elements */
+#addedItem-card {
+  width: fit-content;
+  text-align: center;
+}
+
+/*li elements */
+.list-group-item {
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Delete button */
+.btn-primary {
+  width: 100%;
+  margin: 5px 0px 25px;
 }
