@@ -38,6 +38,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			var staging = await getOutfitItems(req.session.outfit_name);
 			staging = mapper.mapItems(staging)
 
+			delete req.session.outfit_name;
 			await deleteAllStaging(); 
 
 			for(const item of staging){
@@ -46,6 +47,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 
 		}
 
+		console.log(req.session)
 		let catalogs = await getAllCatalogs(req.user.id);
 		let categories = await getAllCategories();
 		staging = await getAllStaging();
@@ -54,7 +56,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
-		console.log(items)
 		console.log(staging)
 		
 
@@ -115,6 +116,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 //-------------------------------test
 router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
+		await deleteAllStaging(); 
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
 			console.log(outfits);
