@@ -23,13 +23,20 @@ module.exports = {
 	 			   image: item.img}));
 	 },
 	 mapOutfit: (outfits) =>{
-		let outfit = [...new Set(outfits.map(outfit => ({
-			 id: outfit.OutfitId,
-			 item_name: outfit["Outfit.outfit_name"], 
-			 image: outfit["Outfit.Outfit_items.Item.image_link"]
-			})))];
+		// let outfit = [...new Set(outfits.map(outfit => ({
+		// 	 id: outfit.OutfitId,
+		// 	 item_name: outfit["Outfit.outfit_name"], 
+		// 	 image: outfit["Outfit.Outfit_items.Item.image_link"]
+		// 	})))];
+		
+		let outfit_arr = outfits.filter((v,i,a)=>a.findIndex(t=>(t.id === v.id))===i);
+		outfit_arr = (outfit_arr.map(outfit => ({
+				 id: outfit.OutfitId,
+				 item_name: outfit["Outfit.outfit_name"], 
+				 image: outfit["Outfit.Outfit_items.Item.image_link"]
+				})));
 
-		return outfit
+		return outfit_arr
 	}
 	 
 };
