@@ -211,3 +211,22 @@ label {
   margin-top: 40px;
   margin-bottom: 30px;
 }
+
+/* Styling for buildoutfit page
+Card elements */
+#addedItem-card {
+  width: fit-content;
+  text-align: center;
+}
+
+/*li elements */
+.list-group-item {
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Delete button */
+.btn-primary {
+  width: 100%;
+  margin: 5px 0px 25px;
+}
