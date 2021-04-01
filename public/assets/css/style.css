@@ -51,10 +51,6 @@ h2 {
   color: white;
 }
 
-/* :hover {
-  background-color: #939597;
-  color: white; 
-} */
 .btn:hover {
   background-color: #f5df4d;
   opacity: 100%;
@@ -88,20 +84,7 @@ a:hover {
   border-color: #939597;
   color: #939597;
 }
-/* .btn-outline-secondary:hover {
-  border-color: transparent; 
-} */
-/* buildOutfit page testing */
-/* .btn-check:active+.btn-outline-secondary, 
-.btn-check:checked+.btn-outline-secondary, 
-.btn-outline-secondary.dropdown-toggle.show {
-  color: #939597;
-  background-color: transparent;
-  border-color: #6c757d;
-} */
-/* .btn-outline-secondary.active {
-  background-color: transparent;
-} */
+
 .dropdown.btn {
   width: 100%;
 }
@@ -139,16 +122,16 @@ input {
 #addToCollection_Btn {
   width: 100%;
 }
-.form-floating {
+/* .styleInput replacing form floating{
   width: 80%;
-}
+} */
 
 #item_name_input.form-floating {
   width: 100%;
 }
 
 .form-control {
-  width: 100%;
+  /* width: 100%; */
   border: 1px solid #939793;
 }
 
@@ -167,11 +150,9 @@ input {
 form {
   margin: 10px;
 }
-
 #signupForm,
 #input-fields,
-#addnew_container,
-.imgcontainer {
+#addnew_container, .imgcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,10 +161,16 @@ form {
 label {
   margin: 10px;
 }
+.landing_btn_container {
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .btn_container {
   display: flex;
-  width: 76%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
 }

@@ -43,6 +43,18 @@
                     {{/if}}
                 </ul>
             </div>
+            <div id="outfit-div">
+                <ul class="list-group" id="outfit-list">
+                    {{#if outfits}}
+                        {{#each outfits }}
+                           
+                            {{> clothesCard}}
+                        {{/each}}
+                    {{else}}
+                    <div> Sorry no outfit found</div>
+                    {{/if}}
+                </ul>
+            </div>
         </div>
 
     </div>
@@ -52,4 +64,4 @@
     </div> --}}
 </div>
 
-<link rel="stylesheet" href="../public/assets/css/catalog.css">
+

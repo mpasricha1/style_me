@@ -47,7 +47,7 @@ $(document).ready(function () {
 // jQuery sending back catalog id, and outfit name
   outfitForm.on("submit", function (event) {
     event.preventDefault();
-
+    console.log(catalog);
     let outfitData = {
       id: catalog,
       outfit_name: $("#outfit-input").val().trim(),
