@@ -7,7 +7,7 @@ h2 {
     margin-top: 10px;
 }
 
-.list-group {
+#cat-list {
   position: relative;
   background-image: url("https://cdn.pixabay.com/photo/2017/05/13/12/40/fashion-2309519__340.jpg");
   background-position: center;
@@ -18,7 +18,7 @@ h2 {
   height: 400px;
 }
 
-.list-group-item {
+.liElement {
   width: 190px;
   margin: 15px 0px;
   border-style: solid;

@@ -24,12 +24,12 @@
             </div>
             <div id="catalog-div">
 
-                <ul class="list-group col-sm-12" id="cat-list">
+                <ul class="list-group col-sm-12 ulElement" id="cat-list">
 
                     {{#if catalogs}}
                     {{#each catalogs }}
 
-                    <li class="list-group-item"> <a id={{id}} href="#">{{catalog}}</a></li>
+                    <li class="list-group-item liElement"> <a id={{id}} href="#">{{catalog}}</a></li>
 
                     {{/each}}
                     {{else}}

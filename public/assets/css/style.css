@@ -209,17 +209,17 @@ Card elements */
   width: fit-content;
   text-align: center;
   margin-top: 24px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 /* Ul container */
-.list-group {
+.ulContainer {
   
   display: contents;
 }
 
 /*li elements */
-.list-group-item {
+.liContainer {
   max-width: 200px;
   text-align: center;
 }
