@@ -54,6 +54,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
+		console.log(items)
 		console.log(staging)
 		
 
