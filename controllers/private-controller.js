@@ -38,6 +38,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			var staging = await getOutfitItems(req.session.outfit_name);
 			staging = mapper.mapItems(staging)
 
+			delete req.session.outfit_name;
 			await deleteAllStaging(); 
 
 			for(const item of staging){
@@ -46,6 +47,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 
 		}
 
+		console.log(req.session)
 		let catalogs = await getAllCatalogs(req.user.id);
 		let categories = await getAllCategories();
 		staging = await getAllStaging();
@@ -54,7 +56,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
-		console.log(items)
 		console.log(staging)
 		
 
@@ -86,6 +87,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  		items = mapper.mapStaging(items); 
 
  		let catalog_id = req.body.id;
+		 console.log(req.body.id);
  		let outfit_name = req.body.outfit_name; 
 
  		let result = await insertOutfit(outfit_name);
@@ -115,16 +117,19 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 //-------------------------------test
 router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
+		await deleteAllStaging(); 
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
-			console.log(outfits);
+			outfits = mapper.mapOutfit(outfits);
+			
 		}
 		
 		let catalog = await getAllCatalogs(req.user.id);
 		catalog = mapper.mapCatalogs(catalog);
 		console.log(catalog);
+		console.log(outfits);
 
-		res.render("catalog", { catalogs: catalog });
+		res.render("catalog", { catalogs: catalog, outfits: outfits });
 	} catch (err) {
 		if (err) console.log(err)//res.status(500).end();
 	}
@@ -153,18 +158,20 @@ const getAllCategories = () => {
 //---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
-		raw: true,
+		raw: true, //img link, item id, item name, outfit name,
 		where: { catalogId: catId },
 		include: [{
 			model: db.Outfit,
 			required: true,
+			attributes: ["outfit_name","id"],
 			include: [{
 				model: db.Outfit_item,
 				required: true,
 				include: [{
 					model: db.Item,
 					required: true,
-					where: { userId: userId }
+					where: { userId: userId },
+					attributes: ["image_link"]
 				}]
 			}]
 		}]
@@ -172,6 +179,7 @@ const getAllOutfits = (catId, userId) => {
 };
 
 const getAllCatalogs = (user_id) => {
+	console.log(db.Catalog);
 	return db.Catalog.findAll({
 		raw: true,
 		attributes: ["id", "catalog_name"],
@@ -230,6 +238,7 @@ const insertOutfitItem = (item, outfit_id) =>{
 };
 
 const insertCatalogItem = (catalog_id, outfit_id) =>{
+	console.log(catalog_id);
 	db.Catalog_item.create({
 		CatalogId: catalog_id, 
 		OutfitId: outfit_id

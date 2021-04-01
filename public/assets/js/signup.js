@@ -53,7 +53,7 @@ $(document).ready(function () {
       password: password,
     })
       .then(function (data) {
-        window.location.replace("/authenticated");
+        window.location.replace("/catalog");
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);

@@ -1,9 +1,9 @@
 body {
-  Font-Family: 'Open Sans', Sans-Serif;
-  color:  #939597;
+  font-family: "Open Sans", Sans-Serif;
+  color: #939597;
 }
 select {
-  color:  #939597;
+  color: #939597;
   margin-left: 10px;
 }
 
@@ -12,35 +12,35 @@ h2 {
 }
 
 #logo {
-    Font-Family: 'Raleway', Sans-Serif;
-    Font-Size: 45px;
-    text-align: center;
-    text-decoration: none;
-    color:  #939597;
-    margin-top: 40px;
-    margin-bottom: 20px;
+  font-family: "Raleway", Sans-Serif;
+  font-size: 45px;
+  text-align: center;
+  text-decoration: none;
+  color: #939597;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 #logo:hover {
   background-color: transparent;
-  color: #F5DF4D;
+  color: #f5df4d;
 }
 #logo_container {
   height: 70px;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .btn {
-    width: 50%;
-    padding: 10px;
-    margin: 5px;
-    
+  width: 50%;
+  padding: 10px;
+  margin: 5px;
 }
 
 /* addnew page buttons */
-#upload_widget.btn {
-  background-color: #F5DF4D; 
+#upload_widget.btn,
+.addNew {
+  background-color: #f5df4d;
   color: white;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -48,10 +48,11 @@ h2 {
 }
 #upload_widget.btn:hover {
   background-color: #939597;
-  color: white; 
+  color: white;
 }
+
 .btn:hover {
-  background-color: #F5DF4D;
+  background-color: #f5df4d;
   opacity: 100%;
   border: none;
 }
@@ -62,46 +63,28 @@ a {
 /*catalog links to categories */
 a:hover {
   background-color: transparent;
-  color: #F5DF4D;
+  color: #f5df4d;
 }
-
 
 .btn-outline-secondary {
-  border-color:  #939597;
+  border-color: #939597;
   color: #939597;
 }
-/* .btn-outline-secondary:hover {
-  border-color: transparent; 
-} */
-/* buildOutfit page testing */
-/* .btn-check:active+.btn-outline-secondary, 
-.btn-check:checked+.btn-outline-secondary, 
-.btn-outline-secondary.dropdown-toggle.show {
-  color: #939597;
-  background-color: transparent;
-  border-color: #6c757d;
-} */
-/* .btn-outline-secondary.active {
-  background-color: transparent;
-} */
+
 .dropdown.btn {
   width: 100%;
 }
-
-
-
 
 .video-container {
   height: 50vh;
   position: relative;
   overflow: hidden;
-  @media(min-width: 600px) {
+  @media (min-width: 600px) {
     height: 100vh;
   }
 }
 
-#video-hero
-{
+#video-hero {
   object-fit: cover;
   position: absolute;
   height: 100%;
@@ -111,7 +94,6 @@ a:hover {
 }
 
 #captureVideo {
-  
   height: 100%;
   width: 100%;
   top: 0;
@@ -122,58 +104,61 @@ input {
   padding: 0%;
   width: 100%;
 }
-#upload_widget, #addToCollection_Btn {
-  width: 100%
+#upload_widget,
+#addToCollection_Btn {
+  width: 100%;
 }
-.form-floating {
+/* .styleInput replacing form floating{
   width: 80%;
-}
+} */
 
 #item_name_input.form-floating {
   width: 100%;
 }
 
-.form-control{
-  width: 100%;
-  border: 1px solid #939597;  
+.form-control {
+  /* width: 100%; */
+  border: 1px solid #939793;
 }
 
-
-/* .style_me_logo {
-  display: block;
+.style_me_logo {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
-} */
+}
 
 .imgcontainer {
+  width: 100%;
   margin-bottom: 40px;
   margin-top: 20px;
 }
 
-
 form {
   margin: 10px;
 }
-
-#signupForm, #input-fields, #addnew_container{
+#signupForm,
+#input-fields,
+#addnew_container, .imgcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 label {
   margin: 10px;
 }
-
-
-
-.btn_container {
+.landing_btn_container {
     display: flex;
-    width: 76%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+}
+
+.btn_container {
+  display: flex;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #description {
@@ -181,16 +166,85 @@ label {
 }
 #img {
   border: 1px solid #939597;
-  width: 100%; 
-  height: auto;  
+  width: 100%;
+  height: auto;
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
 #addToCollection_Btn {
   margin-left: 0px;
 }
-/* #catalogContainer{
-  border: 1px solid #939597;
-}
- */
 
+/*Build page header*/
+.buildHeader {
+  font-family: "Raleway", Sans-Serif;
+  font-size: 50px;
+  color: gray;
+  margin-top: 40px;
+}
+.buildQoute {
+  font-family: cursive;
+  font-size: 20px;
+  font-style: cursive;
+  color: gray;
+  margin-bottom: 40px;
+}
+#outfit-input {
+  padding: 20px;
+}
+/*Build Page btns to return to add new and catalogs*/
+
+.buildBtn {
+  width: 20%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  float: right;
+  background: url(https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Undo-512.png);
+  background-size: 13%;
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+}
+
+/* Styling for buildoutfit page
+Card elements */
+#addedItem-card {
+  width: fit-content;
+  text-align: center;
+  margin-top: 24px;
+  margin-right: 20px;
+}
+
+.rowContainer {
+  justify-content: center;
+}
+
+/* Ul container */
+.ulContainer {
+  display: contents;
+}
+
+/*li elements */
+.liContainer {
+  max-width: 200px;
+  text-align: center;
+  border-style: solid;
+  border-color: #939597;
+}
+
+.outfit_img {
+  border-style: solid;
+  border-color: #c4c4c5;
+}
+
+/* Delete button */
+.btn-primary {
+  width: 100%;
+  margin: 5px 0px 25px;
+}
+
+/* Scrollbar */
+#isIt {
+  height: 700px; 
+  overflow-y:auto;
+}
