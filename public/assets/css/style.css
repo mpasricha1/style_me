@@ -200,7 +200,6 @@ label {
   Font-Family: 'Raleway', Sans-Serif;
   Font-Size: 50px;
   text-align: center;
-  text-decoration: underline;
   color:gray;
   margin-top: 40px;
 }
@@ -209,7 +208,7 @@ label {
   Font-Size: 20px;
   text-align: center;
   font-style: cursive;
-  color:blue;
+  color:gray;
   margin-bottom: 40px;
 }
 #outfit-input{
