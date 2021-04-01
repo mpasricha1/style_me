@@ -11,12 +11,11 @@ $(document).ready(function(){
     });
     $("#imageframe a").on("click", function(event){
         event.preventDefault();
-        console.log(this.name);
-        $.post("/searchoutfit", {
-            outfit_name: $(this).find("img").attr("alt")
-        }).then(function () {
+        $.post("/searchoutfit",{
+            outfit_name: $(this).find("img").attr("alt"),
+        }).then(()=>{
             window.location.replace("/buildoutfit");
-            console.log("HEy");
+            console.log("HEy--------------------------------------------<>---");
           }).catch(function(err){
               console.log(err);
              });
