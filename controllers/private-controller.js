@@ -172,6 +172,7 @@ const getAllOutfits = (catId, userId) => {
 };
 
 const getAllCatalogs = (user_id) => {
+	console.log(db.Catalog);
 	return db.Catalog.findAll({
 		raw: true,
 		attributes: ["id", "catalog_name"],
