@@ -29,8 +29,7 @@ $(document).ready(function () {
     console.log(this.id);
     catalog = this.id;
   });
-
-
+  
   $("#imageframe a").on("click", function (event) {
     event.preventDefault();
 
@@ -45,7 +44,7 @@ $(document).ready(function () {
     });
   });
 
-  // jQuery sending back catalog id, and outfit name
+// jQuery sending back catalog id, and outfit name
   outfitForm.on("submit", function (event) {
     event.preventDefault();
 
@@ -63,4 +62,5 @@ $(document).ready(function () {
       location.reload();
     });
   });
+
 });
