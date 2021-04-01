@@ -86,6 +86,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  		items = mapper.mapStaging(items); 
 
  		let catalog_id = req.body.id;
+		 console.log(req.body.id);
  		let outfit_name = req.body.outfit_name; 
 
  		let result = await insertOutfit(outfit_name);
@@ -117,6 +118,7 @@ router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
+			outfits = mapper.mapOutfit(outfits);
 			console.log(outfits);
 		}
 		
@@ -124,7 +126,7 @@ router.get("/catalog", isAuthenticated, async (req, res) => {
 		catalog = mapper.mapCatalogs(catalog);
 		console.log(catalog);
 
-		res.render("catalog", { catalogs: catalog });
+		res.render("catalog", { catalogs: catalog, outfits: outfits });
 	} catch (err) {
 		if (err) console.log(err)//res.status(500).end();
 	}
@@ -232,6 +234,7 @@ const insertOutfitItem = (item, outfit_id) =>{
 };
 
 const insertCatalogItem = (catalog_id, outfit_id) =>{
+	console.log(catalog_id);
 	db.Catalog_item.create({
 		CatalogId: catalog_id, 
 		OutfitId: outfit_id

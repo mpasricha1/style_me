@@ -21,5 +21,11 @@ module.exports = {
 	return items.map(item => 
 	 			({id: item.item_id, item_name: item.name, 
 	 			   image: item.img}));
-	 }
+	 },
+	 mapOutfit: (outfits) =>{
+		var outfit = outfits.map(outfit =>
+			({id: outfit.OutfitId, item_name: outfit["Outfit.outfit_name"], image: outfit["Outfit.Outfit_items.Item.image_link"]}));
+		return outfit[0]
+	}
+	 
 };
