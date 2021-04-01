@@ -28,28 +28,36 @@ router.post("/addnew", isAuthenticated, (req, res) => {
 	res.redirect("/addnew");
 });
 
-router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
+router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 	try{
 		if(req.session.cat_id){
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
-			items = mapper.mapItems(items);
+			items = mapper.mapItemsCats(items);
 		}
 		if(req.session.outfit_name){
-			var staging = await getOutfitItems(req.session.outfit_name); 
-		}else{
-			var staging = await getAllStaging();
+			var staging = await getOutfitItems(req.session.outfit_name);
+			staging = mapper.mapItems(staging)
+
+			await deleteAllStaging(); 
+
+			for(const item of staging){
+				await insertStaging(item)
+			}
 
 		}
-		let categories = await getAllCategories();
-		let catalogs = await getAllCatalogs(req.user.id);
 
-		
+		let catalogs = await getAllCatalogs(req.user.id);
+		let categories = await getAllCategories();
+		staging = await getAllStaging();
+	
 		catalogs = mapper.mapCatalogs(catalogs);
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
+		console.log(staging)
+		
 
-		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, staging: staging} );
+		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging} );
 	}catch(err){
 		if(err) console.log(err)
 		//if(err) return res.status(500).end();
@@ -57,17 +65,16 @@ router.get("/buildoutfit", isAuthenticated, async (req,res) =>{
 });
 
 router.post("/buildoutfit", isAuthenticated, (req, res) =>{
-	req.session.cat_id = req.body.cat_id; 
+	req.session.cat_id = req.body.cat_id;
 	res.redirect("/buildoutfit");
 });
 
 router.post("/searchoutfit", isAuthenticated, (req, res) => {
-	req.session.outfit_name = req.body.outfit_name; 
+	req.session.outfit_name = req.body.outfit_name;
 	res.redirect("/buildoutfit");
 })
 
 router.post("/staging", isAuthenticated, async (req,res) => {
-	console.log(req.body)
 	await insertStaging(req.body.item);
 	res.redirect("/buildoutfit")
 
@@ -107,7 +114,6 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 //-------------------------------test
 router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
-		console.log(req.session.cat_id);
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
 			console.log(outfits);
@@ -131,8 +137,14 @@ router.post("/catalog", isAuthenticated, (req, res) => {
 	
 });
 
+router.get("/logout", (req, res ) =>{
+	req.logout();
+	res.redirect("/");
+});
+
 const getAllCategories = () => {
 	return db.Categories.findAll({
+		raw: true,
 		attributes: ["id", "category_name"]
 	})
 };
@@ -140,6 +152,7 @@ const getAllCategories = () => {
 //---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
+		raw: true,
 		where: { catalogId: catId },
 		include: [{
 			model: db.Outfit,
@@ -159,6 +172,7 @@ const getAllOutfits = (catId, userId) => {
 
 const getAllCatalogs = (user_id) => {
 	return db.Catalog.findAll({
+		raw: true,
 		attributes: ["id", "catalog_name"],
 		where: {
 			UserId: user_id
@@ -167,7 +181,8 @@ const getAllCatalogs = (user_id) => {
 };
 
 const getOutfitItems = (outfit_name) => {
-	return db.Outfit_item.findAll({ 
+	return db.Outfit_item.findAll({
+		raw: true,
 		include: [{
 			model: db.Item, 
 			required: true, 
@@ -183,10 +198,12 @@ const getOutfitItems = (outfit_name) => {
 };
 
 const getAllStaging = () => {
-	return db.Outfit_staging.findAll();
+	return db.Outfit_staging.findAll({
+		raw: true
+	});
 };
 const deleteAllStaging = () => {
-	db.Outfit_staging.destroy({
+	return db.Outfit_staging.destroy({
 		truncate: true
 	})
 };
@@ -197,8 +214,29 @@ const insertStaging = (item) => {
 		name: item.name
 	})
 };
+
+const insertOutfit = (outfit_name) => {
+	return db.Outfit.create({
+		outfit_name: outfit_name
+	})
+};
+
+const insertOutfitItem = (item, outfit_id) =>{
+	db.Outfit_item.create({
+		ItemId: item.id, 
+		OutfitId: outfit_id
+	})
+};
+
+const insertCatalogItem = (catalog_id, outfit_id) =>{
+	db.Catalog_item.create({
+		CatalogId: catalog_id, 
+		OutfitId: outfit_id
+	})
+}
 const getAllItemsByCategory = (cat_id, user_id) => {
 	return db.Item.findAll({
+		raw: true,
 		where: { CategoryId: cat_id, userId: user_id }
 	});
 };

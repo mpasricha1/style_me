@@ -29,37 +29,38 @@ $(document).ready(function () {
     console.log(this.id);
     catalog = this.id;
   });
+  
+  $("#imageframe a").on("click", function (event) {
+    event.preventDefault();
 
-$("#imageframe a").on("click", function (event) {
-  event.preventDefault();
+    const item = {
+      id: this.id,
+      img: $(this).find("img").attr("src"),
+      name: $(this).find("img").attr("alt"),
+    };
 
-  const item = {
-    id: this.id,
-    img: $(this).find("img").attr("src"),
-    name: $(this).find("img").attr("alt"),
-  };
-
-  $.post("/staging", { item: item }).then(() => {
-    location.reload();
+    $.post("/staging", { item: item }).then(() => {
+      location.reload();
+    });
   });
-});
 
 // jQuery sending back catalog id, and outfit name
-outfitForm.on("submit", function (event) {
-  event.preventDefault();
+  outfitForm.on("submit", function (event) {
+    event.preventDefault();
 
-  let outfitData = {
-    id: catalog,
-    outfit_name: $("#outfit-input").val().trim(),
-  };
+    let outfitData = {
+      id: catalog,
+      outfit_name: $("#outfit-input").val().trim(),
+    };
 
-  console.log(outfitData);
-  // Sending data to insertoutfit route
-  $.ajax("/addoutfit", {
-    type: "POST",
-    data: outfitData,
-  }).then(function () {
-    location.reload();
+    console.log(outfitData);
+    // Sending data to insertoutfit route
+    $.ajax("/addoutfit", {
+      type: "POST",
+      data: outfitData,
+    }).then(function () {
+      location.reload();
+    });
   });
-});
 
+});
