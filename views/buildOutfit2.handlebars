@@ -40,9 +40,11 @@
                     </div>
                 </div>
                 {{#if newOutfititems}}
+                <div id="isIt">
                 {{#each newOutfititems }}
                 {{> clothesCard}}
                 {{/each}}
+                </div>
                 {{else}}
                 <div> No Items Found</div>
                 {{/if}}
