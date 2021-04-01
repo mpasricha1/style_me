@@ -87,6 +87,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  		items = mapper.mapStaging(items); 
 
  		let catalog_id = req.body.id;
+		 console.log(req.body.id);
  		let outfit_name = req.body.outfit_name; 
 
  		let result = await insertOutfit(outfit_name);
@@ -119,14 +120,16 @@ router.get("/catalog", isAuthenticated, async (req, res) => {
 		await deleteAllStaging(); 
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
-			console.log(outfits);
+			outfits = mapper.mapOutfit(outfits);
+			
 		}
 		
 		let catalog = await getAllCatalogs(req.user.id);
 		catalog = mapper.mapCatalogs(catalog);
 		console.log(catalog);
+		console.log(outfits);
 
-		res.render("catalog", { catalogs: catalog });
+		res.render("catalog", { catalogs: catalog, outfits: outfits });
 	} catch (err) {
 		if (err) console.log(err)//res.status(500).end();
 	}
@@ -155,18 +158,20 @@ const getAllCategories = () => {
 //---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
-		raw: true,
+		raw: true, //img link, item id, item name, outfit name,
 		where: { catalogId: catId },
 		include: [{
 			model: db.Outfit,
 			required: true,
+			attributes: ["outfit_name","id"],
 			include: [{
 				model: db.Outfit_item,
 				required: true,
 				include: [{
 					model: db.Item,
 					required: true,
-					where: { userId: userId }
+					where: { userId: userId },
+					attributes: ["image_link"]
 				}]
 			}]
 		}]
@@ -233,6 +238,7 @@ const insertOutfitItem = (item, outfit_id) =>{
 };
 
 const insertCatalogItem = (catalog_id, outfit_id) =>{
+	console.log(catalog_id);
 	db.Catalog_item.create({
 		CatalogId: catalog_id, 
 		OutfitId: outfit_id
