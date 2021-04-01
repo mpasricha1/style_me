@@ -39,7 +39,7 @@ h2 {
 }
 
 /* addnew page buttons */
-#upload_widget.btn, .btn-outline-secondary  {
+#upload_widget.btn, .addNew {
   background-color: #F5DF4D; 
   color: white;
   margin-top: 30px;
@@ -51,15 +51,16 @@ h2 {
   color: white; 
 }
 
-.btn-outline-secondary:hover {
+
+/* :hover {
   background-color: #939597;
   color: white; 
-}
-/* .btn:hover {
+} */
+.btn:hover {
   background-color: #F5DF4D;
   opacity: 100%;
   border: none;
-} */
+}
 a {
   color: #939597;
   text-decoration: none;
@@ -71,10 +72,10 @@ a:hover {
 }
 
 
-/* .btn-outline-secondary {
+.btn-outline-secondary {
   border-color:  #939597;
   color: #939597;
-} */
+}
 /* .btn-outline-secondary:hover {
   border-color: transparent; 
 } */
