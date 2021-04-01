@@ -135,18 +135,18 @@ input {
 
 .form-control{
   width: 100%;
-  border: 1px solid #939597;  
+  border: 1px solid #939793;  
 }
 
 
-/* .style_me_logo {
-  display: block;
+.style_me_logo {
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
-} */
+  width: 100%;
+}
 
 .imgcontainer {
+  width: 100%;
   margin-bottom: 40px;
   margin-top: 20px;
 }
