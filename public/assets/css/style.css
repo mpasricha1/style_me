@@ -138,5 +138,43 @@ label {
 #description {
   margin: 20px;
 }
-
-
+/*buildOufits styling*/
+.buildH2{
+  Font-Family: 'Raleway', Sans-Serif;
+    Font-Size: 45px;
+    text-align: center;
+    text-decoration: none;
+    color:  #939597;
+    margin-bottom: 5rem;
+}
+.buildQuote{
+  font-family: cursive;
+  text-align: center;
+  margin-bottom: 10rem;
+}
+.buildOutfit{
+  Font-Family: 'Raleway', Sans-Serif;
+  Font-Size: 45px;
+  text-align: center;
+  text-decoration: none;
+  color:  #939597;
+  margin-top: 30px;
+  text-decoration: underline;
+  text-decoration-color: yellow;
+  text-decoration-thickness: 10px;
+}
+#dropdown{
+  border-color: yellow;
+  border-width: 10px;
+  border-style: inset;
+}
+#search-input{
+  background-color:lightgrey;
+  color: white;
+  border-color: yellow;
+  border-width: 10px;
+  border-style: inset;
+}
+input[type=search]{
+  width: 200px
+}

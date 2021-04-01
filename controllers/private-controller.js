@@ -161,6 +161,7 @@ const mapCategories = (categories) => {
 	}));
 };
 const getAllCatalogs = (user_id) => {
+	console.log(db.Catalog);
 	return db.Catalog.findAll({
 		attributes: ["id", "catalog_name"],
 		where: {

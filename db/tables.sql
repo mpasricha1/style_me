@@ -60,7 +60,7 @@ CREATE TABLE catalog_item(
   catalog_id INT NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(catalog_id) REFERENCES Catalog(id),
-  FOREIGN KEY(outfit_id)) REFERENCES Outfit(id)
+  FOREIGN KEY(outfit_id) REFERENCES Outfit(id)
 );
 
 CREATE TABLE outfit_staging(
@@ -68,4 +68,4 @@ CREATE TABLE outfit_staging(
   item_id INT NOT NULL, 
   img VARCHAR(255), 
   name VARCHAR(50)
-)
+);
