@@ -7,6 +7,7 @@
     <div class="row">
         <div class="col-sm-12">
             <h2 class="buildHeader">Build Outfit</h2>
+            <h2 class="buildQoute">"Find your best look" </h2>
         </div>
     </div>
 
@@ -19,13 +20,13 @@
                         <span class="algolia-autocomplete"
                             style="position: relative; display: inline-block; direction: ltr"></span>
                         <input type="search" class="form-control ds-input" id="search-input"
-                            placeholder="Search Outfits" style="position: relative; vertical-align: top" />
+                            placeholder="Search Outfits...." style="position: relative; vertical-align: top" />
                     </div>
                 </form>
                 <div class="row">
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown"
-                            data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;padding: 10px; position:vertical-align:top">
+                            data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%">
                             CATEGORIES
                         </button>
                         <ul class="dropdown-menu" id="menu">
@@ -40,7 +41,7 @@
                 {{> clothesCard}}
                 {{/each}}
                 {{else}}
-                <div> Sorry no outfits items found</div>
+                <div> No Outfits Found</div>
                 {{/if}}
             </div>
         </div>
@@ -58,8 +59,8 @@
                             <div class="col-md-7">
                                 <div class="dropdown">
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                        id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Catalogs
+                                        id="dropdown" data-bs-toggle="dropdown" aria-expanded="false" style="padding:30px; margin:0%">
+                                        CATALOGS
                                     </button>
                                     <ul class="dropdown-menu" id="catalogs">
                                         {{#each catalogs}}
@@ -72,8 +73,8 @@
                                 <span class="algolia-autocomplete"
                                     style="position: relative; display: inline; direction: ltr"></span>
                                 <input type="search" class="form-control ds-input" id="outfit-input"
-                                    placeholder="Outfit Name" style="position: vertical-align: top" />
-                                    <button class="btn btn-outline-secondary" type="submit" style="display:inline">Save
+                                    placeholder="Outfit Name" style="position: vertical-align: top; text-align:center" />
+                                    <button class="btn btn-outline-secondary" type="submit" style="display:inline; width:100%;padding:15px; margin-left:0%">Save
                         </button>
                             </div>
                         </div>
