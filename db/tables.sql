@@ -54,7 +54,7 @@ CREATE TABLE outfit_item(
   FOREIGN KEY(item_id) REFERENCES Item(id)
 );
 
-CREATE TABLE catalog_item(
+CREATE TABLE catalog_item (
   id INT AUTO_INCREMENT NOT NULL,
   outfit_id INT NOT NULL, 
   catalog_id INT NOT NULL,
@@ -68,4 +68,8 @@ CREATE TABLE outfit_staging(
   item_id INT NOT NULL, 
   img VARCHAR(255), 
   name VARCHAR(50)
+<<<<<<< HEAD
 );
+=======
+);
+>>>>>>> e8fd3359358706ea11a100f9b22a2ad9078172f6
