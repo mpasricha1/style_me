@@ -85,13 +85,13 @@
 
                 </div>
             </div>
-            <div class="row">
+            <div class="row rowContainer">
                 <ul class="list-group ulContainer" id="outfitlist">
 
                     {{#if stagings}}
                     {{#each stagings }}
                     <div id="addedItem-card">
-                    <img src={{image}} alt={{item_name}} width="200px" height="200px">
+                    <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
                     <li class="list-group-item liContainer">{{item_name}}</li>
                     <button class="btn btn-primary" id{{id}}>Delete from
                         Outfit</button>
