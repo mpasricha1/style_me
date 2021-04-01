@@ -189,14 +189,23 @@ label {
 }
 
 /*Build page header*/
-.buildHeader {
-  font-family: "Raleway", Sans-Serif;
-  font-size: 30px;
+.buildHeader{
+  Font-Family: 'Raleway', Sans-Serif;
+  Font-Size: 50px;
   text-align: center;
-  text-decoration: underline;
-  color: gray;
+  color:gray;
   margin-top: 40px;
-  margin-bottom: 30px;
+}
+.buildQoute{
+  Font-Family: cursive;
+  Font-Size: 20px;
+  text-align: center;
+  font-style: cursive;
+  color:gray;
+  margin-bottom: 40px;
+}
+#outfit-input{
+  padding: 20px;
 }
 
 /* Styling for buildoutfit page
