@@ -23,9 +23,13 @@ module.exports = {
 	 			   image: item.img}));
 	 },
 	 mapOutfit: (outfits) =>{
-		var outfit = outfits.map(outfit =>
-			({id: outfit.OutfitId, item_name: outfit["Outfit.outfit_name"], image: outfit["Outfit.Outfit_items.Item.image_link"]}));
-		return outfit[0]
+		let outfit = [...new Set(outfits.map(outfit => ({
+			 id: outfit.OutfitId,
+			 item_name: outfit["Outfit.outfit_name"], 
+			 image: outfit["Outfit.Outfit_items.Item.image_link"]
+			})))];
+
+		return outfit
 	}
 	 
 };

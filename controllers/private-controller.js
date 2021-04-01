@@ -119,12 +119,13 @@ router.get("/catalog", isAuthenticated, async (req, res) => {
 		if(req.session.cat_id){
 			var outfits = await getAllOutfits(req.session.cat_id, req.user.id)
 			outfits = mapper.mapOutfit(outfits);
-			console.log(outfits);
+			
 		}
 		
 		let catalog = await getAllCatalogs(req.user.id);
 		catalog = mapper.mapCatalogs(catalog);
 		console.log(catalog);
+		console.log(outfits);
 
 		res.render("catalog", { catalogs: catalog, outfits: outfits });
 	} catch (err) {
