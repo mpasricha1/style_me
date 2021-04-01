@@ -137,6 +137,7 @@ const getAllCategories = () => {
 //---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
+		raw: true, //img link, item id, item name, outfit name,
 		where: { catalogId: catId },
 		include: [{
 			model: db.Outfit,
