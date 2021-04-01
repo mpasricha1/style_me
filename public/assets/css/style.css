@@ -69,7 +69,21 @@ a:hover {
   background-color: transparent;
   color: #f5df4d;
 }
-
+.catalogBtns{
+  margin-right: 80px;
+}
+.catalogBtn{
+  float: right;
+  text-align: center;
+  padding-right: 5px;
+  width: 40%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background: url(https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Undo-512.png);
+  background-size: 13%;
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+}
 .btn-outline-secondary {
   border-color: #939597;
   color: #939597;
