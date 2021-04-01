@@ -72,7 +72,7 @@ a:hover {
   float: right;
   text-align: center;
   padding-right: 5px;
-  width: 40%;
+  width: auto;
   margin-top: 10px;
   margin-bottom: 20px;
   background: url(https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Undo-512.png);
@@ -210,7 +210,7 @@ label {
 /*Build Page btns to return to add new and catalogs*/
 
 .buildBtn {
-  width: 20%;
+  width: auto;
   margin-top: 10px;
   margin-bottom: 20px;
   float: right;
