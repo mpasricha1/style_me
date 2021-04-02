@@ -11,7 +11,7 @@ const db = {};
 if (process.env.use_env_variable) {
   var sequelize = new Sequelize(process.env[process.env.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(process.env.database, process.env.username, process.env.password, process.env.dialect);
+  var sequelize = new Sequelize(process.env.database, process.env.username, process.env.password, dialect: "mysql");
 }
 
 fs
