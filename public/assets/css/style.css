@@ -65,6 +65,7 @@ a:hover {
   background-color: transparent;
   color: #f5df4d;
 }
+/*buttons to add new page and build outfit*/
 .catalogBtns{
   margin-right: 80px;
 }
@@ -195,12 +196,13 @@ form {
   margin-left: 0px;
 }
 
-/*Build page header*/
+/*Build page header and buttons*/
 .buildHeader {
-  font-family: "Raleway", Sans-Serif;
-  font-size: 50px;
+  font-family: "Open Sans", Sans-Serif;
+  font-size: 2rem;
+  font-weight: 500;
   color: gray;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .buildQoute {
   font-family: cursive;
@@ -209,19 +211,23 @@ form {
   color: gray;
   margin-bottom: 40px;
 }
-#outfit-input {
-  padding: 20px;
+#search-input,
+#dropdown{
+  width: 100%;
 }
-/*Build Page btns to return to add new and catalogs*/
+
+#outfit-input {
+  width: 100%;
+  padding: 10px;
+}
+/*Build Page but to return to add new and catalogs*/
 
 .buildBtn {
   width: auto;
+  padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   float: right;
-  background-size: 13%;
-  background-position: 8px 8px;
-  background-repeat: no-repeat;
 }
 
 /* Styling for buildoutfit page
