@@ -65,7 +65,20 @@ a:hover {
   background-color: transparent;
   color: #f5df4d;
 }
-
+.catalogBtns{
+  margin-right: 80px;
+}
+.catalogBtn{
+  float: right;
+  text-align: center;
+  padding-right: 5px;
+  width: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-size: 13%;
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+}
 .btn-outline-secondary {
   border-color: #939597;
   color: #939597;
@@ -136,17 +149,23 @@ input {
 form {
   margin: 10px;
 }
+
 #signupForm,
-#input-fields,
+#input-fields {
+  width:60%;
+  padding: 5px
+}
+
+
 #addnew_container, .imgcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-label {
+/* label {
   margin: 10px;
-}
+} */
 .landing_btn_container {
     display: flex;
     width: 100%;
@@ -196,11 +215,10 @@ label {
 /*Build Page btns to return to add new and catalogs*/
 
 .buildBtn {
-  width: 20%;
+  width: auto;
   margin-top: 10px;
   margin-bottom: 20px;
   float: right;
-  background: url(https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Undo-512.png);
   background-size: 13%;
   background-position: 8px 8px;
   background-repeat: no-repeat;
