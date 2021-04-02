@@ -8,75 +8,84 @@
             <button id="upload_widget" class="btn">Add an Item</button>
         </div>
     </div>
+
     <div class="row">
         <div class="col-sm-12">
-            <h2>Details</h2>
+            <a href="/catalog" class="btn btn-outline-secondary buildBtn">SEE CATALOGS</a>
+            <a href="/buildoutfit" class="btn btn-outline-secondary buildBtn">BUILD OUTFIT</a>
         </div>
     </div>
-  <div class="row">
-    <div class="col-sm-2">
-        <label for="category">Choose a category:</label>
-        <select name="category" id="category_name">
-            {{#each categories}}
-            <option id="{{id}}" value="{{category}}">{{category}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <div class="col-sm-10">
-        <!-- Image should be displayed in img tag -->
-        <img id="img" src="../public/assets/images/PlaceholderGray2.png" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-      
-    </div>
-    <div class="col-sm-10">
-        <!-- Photo input fields -->
-      <div id="item_name_input" class="form-floating mb-3">
-        <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
-        <label for="item_name">Item Name</label>
+
+
+    <div class="row">
+        <h2>Details</h2>
+        <div class="col-sm-10" style="text-align: center;">
+            <label for="category" style="margin-left: 26px;">Choose a category:</label>
+            <select name="category" id="category_name">
+                {{#each categories}}
+                <option id="{{id}}" value="{{category}}">{{category}}</option>
+                {{/each}}
+            </select>
         </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-2">
-     
-    </div>
-    <div class="col-sm-10">
-        <button id="addToCollection_Btn" class="btn btn-outline-secondary addNew" type="submit">
-            Add to Collection
-        </button>
-    </div>
-  
-</div>
 
-{{!-- <!-- Image should be displayed in img tag -->
-<img id="img" src="../public/assets/images/Style Me.png" style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
-<!-- Photo input fields -->
-<div class="photo-input-fields">
-    <div>
-        <div class="form-floating mb-3">
-        <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
-        <label for="item_name">Item Name</label>
+    <div class="row" style="display: inline;">
+        <div class="col-sm-12" style="text-align: center;">
+            <!-- Image should be displayed in img tag -->
+            <img id="img" src="../public/assets/images/PlaceholderGray2.png" style="max-width: 80%; max-height: 80%;" />
         </div>
-        
-        <label for="category">Choose a category:</label>
-        <select name="category" id="category_name">
-            {{#each categories}}
-            <option id="{{id}}" value="{{category}}">{{category}}</option>
-            {{/each}}
-        </select>
-
     </div>
 
-    <!-- Add to collection button -->
-    <div>
-        <button id="addToCollection_Btn" class="btn btn-outline-secondary" type="submit">
-            Add to Collection
-        </button>
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <!-- Photo input fields -->
+            <div id="item_name_input" class="form-floating mb-3">
+                <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
+                <label for="item_name">Item Name</label>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <button id="addToCollection_Btn" class="btn btn-outline-secondary addNew" type="submit">
+                Add to Collection
+            </button>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    {{!--
+    <!-- Image should be displayed in img tag -->
+    <img id="img" src="../public/assets/images/Style Me.png"
+        style="width: 200px; height: 200px; border: solid; margin-bottom: 20px" />
+    <!-- Photo input fields -->
+    <div class="photo-input-fields">
+        <div>
+            <div class="form-floating mb-3">
+                <input id="item_name" class="form-control" type="text" name="item_Name" placeholder="Item Name" />
+                <label for="item_name">Item Name</label>
+            </div>
+
+            <label for="category">Choose a category:</label>
+            <select name="category" id="category_name">
+                {{#each categories}}
+                <option id="{{id}}" value="{{category}}">{{category}}</option>
+                {{/each}}
+            </select>
+
+        </div>
+
+        <!-- Add to collection button -->
+        <div>
+            <button id="addToCollection_Btn" class="btn btn-outline-secondary" type="submit">
+                Add to Collection
+            </button>
+        </div>
+    </div>
 </div> --}}
 
 
