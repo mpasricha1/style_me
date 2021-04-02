@@ -4,12 +4,12 @@ body {
 }
 select {
   color: #939597;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
-h2 {
+/* h2 {
   margin-left: 10px;
-}
+} */
 
 #logo {
   font-family: "Raleway", Sans-Serif;
