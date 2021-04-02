@@ -9,24 +9,17 @@ $(document).ready(function(){
             location.reload();
           });
     });
-    $("#imageframe a").on("click", function(event){
+    $("#imageframe2 a").on("click", function(event){
         event.preventDefault();
         console.log(this.name);
         $.post("/searchoutfit", {
             outfit_name: $(this).find("img").attr("alt")
         }).then(function () {
-            window.location.replace("/buildoutfit");
             console.log("HEy");
+            window.location.replace("/buildoutfit");
           }).catch(function(err){
               console.log(err);
-             });
-        // $.ajax("/addoutfit", {
-        //     type: "POST",
-        //     data: $(this).find("img").attr("alt"),
-        //   }).then(function () {
-        //     console.log("HEy");
-        //     window.location.replace("/buildoutfit");
-        //   });
+        });
     });
 });
 
