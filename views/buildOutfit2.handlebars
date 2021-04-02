@@ -24,7 +24,8 @@
                         <span class="algolia-autocomplete"
                             style="position: relative; display: inline-block; direction: ltr"></span>
                         <input type="search" class="form-control ds-input" id="search-input"
-                            placeholder="Search Outfits...." style="padding:10px;position: relative; vertical-align: top" />
+                            placeholder="Search Outfits...."
+                            style="padding:10px;position: relative; vertical-align: top" />
                     </div>
                 </form>
                 <div class="row">
@@ -41,15 +42,17 @@
                         </ul>
                     </div>
                 </div>
-                {{#if newOutfititems}}
-                <div id="isIt">
-                {{#each newOutfititems }}
-                {{> clothesCard}}
-                {{/each}}
+                <div class="row rowItemContainer">
+                    {{#if newOutfititems}}
+                    <div id="isIt">
+                        {{#each newOutfititems }}
+                        {{> clothesCard}}
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <div> No Items Found</div>
+                    {{/if}}
                 </div>
-                {{else}}
-                <div> No Items Found</div>
-                {{/if}}
             </div>
         </div>
 
@@ -97,10 +100,11 @@
                     {{#if stagings}}
                     {{#each stagings }}
                     <div id="addedItem-card">
-                    <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
-                    <li class="list-group-item liContainer">{{item_name}}</li>
-                    <button class="btn btn-primary" id={{id}}>Delete from
-                        Outfit</button>
+                        <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
+                        <li class="list-group-item liContainer">{{item_name}}</li>
+                        <button class="btn btn-primary" id{{id}}>Delete from
+                            Outfit</button>
+
                     </div>
                     {{/each}}
                     {{/if}}

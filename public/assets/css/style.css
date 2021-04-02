@@ -66,10 +66,10 @@ a:hover {
   color: #f5df4d;
 }
 /*buttons to add new page and build outfit*/
-.catalogBtns{
+.catalogBtns {
   margin-right: 80px;
 }
-.catalogBtn{
+.catalogBtn {
   float: right;
   text-align: center;
   padding-right: 5px;
@@ -118,13 +118,11 @@ input {
   padding: 0%;
   width: 100%;
 }
+
 #upload_widget,
 #addToCollection_Btn {
   width: 100%;
 }
-/* .styleInput replacing form floating{
-  width: 80%;
-} */
 
 #item_name_input.form-floating {
   width: 100%;
@@ -147,31 +145,48 @@ input {
   margin-top: 20px;
 }
 
+.landingImages {
+  width: 100%; 
+  height: auto;
+}
+.landingTextRowGray{
+  padding: 20px;
+  background-color: #939597;
+  color: white;
+  
+}
+.landingTextRowYellow{
+  padding: 20px;
+  background-color:#f5df4d;
+
+}
+.landingText {
+  padding: 40px;
+  text-align: left;
+}
 form {
   margin: 10px;
 }
 
 #signupForm,
 #input-fields {
-  width:60%;
-  padding: 5px
+  width: 60%;
+  padding: 5px;
 }
 
-
-#addnew_container, .imgcontainer {
+#addnew_container,
+.imgcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-/* label {
-  margin: 10px;
-} */
+
 .landing_btn_container {
-    display: flex;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn_container {
@@ -184,6 +199,7 @@ form {
 #description {
   margin: 20px;
 }
+
 #img {
   border: 1px solid #939597;
   width: 100%;
@@ -212,7 +228,7 @@ form {
   margin-bottom: 40px;
 }
 #search-input,
-#dropdown{
+#dropdown {
   width: 100%;
 }
 
@@ -269,6 +285,60 @@ Card elements */
 
 /* Scrollbar */
 #isIt {
-  height: 700px; 
-  overflow-y:auto;
+  height: 700px;
+  overflow-y: auto;
+  margin: 20px 0px;
+}
+
+/* Styling for devices with a screen with a 
+maximum width of 767px  */
+@media only screen and (max-width: 767px) {
+  .rowItemContainer {
+    justify-content: center;
+    margin: 20px 0px;
+    overflow-y: auto;
+    height: 500px;
+  }
+
+  #isIt {
+    width: 100%;
+    display: contents;
+  }
+
+  #imageframe {
+    width: 45%;
+    height: 60%;
+    margin: 0px 2px;
+  }
+}
+
+/* Styling for devices with a screen with a 
+minimum width of 992px  */
+@media only screen and (min-width: 992px) {
+  .rowItemContainer {
+    justify-content: center;
+  }
+  #isIt {
+    width: 70%;
+  }
+
+  #imageframe {
+    width: 100%;
+  }
+
+  #addedItem-card {
+    margin-right: auto;
+  }
+}
+
+/* Styling for devices with a screen with a 
+minimum width of 1400px  */
+@media only screen and (min-width: 1400px) {
+  #isIt {
+    width: 85%;
+  }
+
+  .imgItemCard {
+    height: 320px;
+  }
 }
