@@ -34,7 +34,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		if(req.session.cat_id){
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
 			items = mapper.mapItemsCats(items);
-			// delete req.session.cat_id;
 		}
 		if(req.session.outfit_name){
 			var staging = await getOutfitItems(req.session.outfit_name); 
@@ -50,8 +49,13 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			for(const item of staging){
 				await insertStaging(item)
 			}
-
 		};
+		if(req.session.item_id){
+			await deleteOneStanging(req.session.item_id);
+			if(ids){
+				await deleteOutfitItem(req.session.item_id, ids.catalog_id);
+			} 
+		}
 
 		let catalogs = await getAllCatalogs(req.user.id);
 		let categories = await getAllCategories();
@@ -85,9 +89,13 @@ router.post("/searchoutfit", isAuthenticated, (req, res) => {
 
 router.post("/staging", isAuthenticated, async (req,res) => {
 	await insertStaging(req.body.item);
-	res.redirect("/buildoutfit")
+	res.redirect("/buildoutfit");
 
 });
+router.post("/deleteoutfititem", isAuthenticated, (req,res) => {
+	req.session.item_id = req.body.item_id; 
+	res.redirect("/buildoutfit");
+})
 router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 	try{
 		let items = await getAllStaging();
@@ -120,14 +128,6 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 	};
 	
 });
-
-// const getAllCategories = () => {
-//   return db.Categories.findAll({
-//     attributes: ["id", "category_name"],
-//   });
-// };
-
-//-------------------------------test
 router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
 		await deleteAllStaging(); 
@@ -167,8 +167,6 @@ const getAllCategories = () => {
 		attributes: ["id", "category_name"]
 	})
 };
-
-//---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
 		raw: true, //img link, item id, item name, outfit name,
@@ -246,6 +244,21 @@ const getAllStaging = () => {
 		raw: true
 	});
 };
+const deleteOutfitItem = (item_id, outfit_id) =>{
+	db.Outfit_item.destroy({
+		where: {
+			ItemId: item_id,
+			OutfitId: outfit_id
+		}
+	})
+}
+const deleteOneStanging = (item_id) => {
+	db.Outfit_staging.destroy({
+		where: {
+			Item_id: item_id
+		}
+	})
+}
 const deleteAllStaging = () => {
 	return db.Outfit_staging.destroy({
 		truncate: true
