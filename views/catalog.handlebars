@@ -6,8 +6,9 @@
     <div class="container col-sm-5" id="catalogContainer">
         <h2>Find Catalogs</h2>
     </div>
-    <div class="col-sm-5">
-        <a href="/buildoutfit" class="btn btn-outline-secondary">Build Outfit</a>
+    <div class="col-sm-5 catalogBtns">
+        <a href="/buildoutfit" class="btn btn-outline-secondary catalogBtn">BUILD OUTFIT</a>
+         <a href="/addnew" class="btn btn-outline-secondary catalogBtn">ADD NEW ITEM</a>
     </div>
 </div>
 <div class="row">
@@ -47,7 +48,7 @@
                     {{#if outfits}}
                         {{#each outfits }}
                            
-                            {{> clothesCard}}
+                            {{> outfitCard}}
                         {{/each}}
                     {{else}}
                     <div> Sorry no outfit found</div>
