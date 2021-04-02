@@ -68,8 +68,4 @@ CREATE TABLE outfit_staging(
   item_id INT NOT NULL, 
   img VARCHAR(255), 
   name VARCHAR(50)
-<<<<<<< HEAD
 );
-=======
-);
->>>>>>> e8fd3359358706ea11a100f9b22a2ad9078172f6
