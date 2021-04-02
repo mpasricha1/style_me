@@ -55,6 +55,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			if(ids){
 				await deleteOutfitItem(req.session.item_id, ids.catalog_id);
 			} 
+			delete req.session.item_id;
 		}
 
 		let catalogs = await getAllCatalogs(req.user.id);
