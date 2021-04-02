@@ -8,10 +8,10 @@ const env = process.env.NODE_ENV || "development";
 //const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
-if (process.env.use_env_variable) {
-  var sequelize = new Sequelize(process.env[process.env.use_env_variable]);
+if (config.use_env_variable) {
+  var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {
-  var sequelize = new Sequelize(process.env.database, process.env.username, process.env.password, dialect: "mysql");
+  var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
 fs
