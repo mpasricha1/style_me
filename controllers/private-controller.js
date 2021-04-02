@@ -52,8 +52,10 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		};
 		if(req.session.item_id){
 			await deleteOneStanging(req.session.item_id);
-			if(ids){
-				await deleteOutfitItem(req.session.item_id, ids.catalog_id);
+			if(req.session.id_data){
+				var outfit_id = await getOutfitId(req.session.id_data.outfit_name)
+				console.log("Outfit id: " + req.session.item_id)
+				await deleteOutfitItem(req.session.item_id, outfit_id.id);
 			} 
 			delete req.session.item_id;
 		}
@@ -62,9 +64,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		let categories = await getAllCategories();
 		staging = await getAllStaging();
 
-		// console.log(items);
-		// console.log(req.session);
-	
 		catalogs = mapper.mapCatalogs(catalogs);
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
@@ -113,7 +112,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
  			var result = await insertOutfit(outfit_name);
  			var outfit_id = result.dataValues.id;
 
- 			await insertCatalogItem(catalog_id, outfit_item);
+ 			await insertCatalogItem(catalog_id, outfit_id);
  		}
  		
  		items.forEach(item =>{
