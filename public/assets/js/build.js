@@ -63,4 +63,11 @@ $(document).ready(function () {
     });
   });
 
+  $(".deleteBtn").on("click", function(event) {
+    event.preventDefault();
+    $.post("/deleteoutfititem", { item_id: this.id }).then(() => {
+      location.reload();
+    });
+  })
+
 });

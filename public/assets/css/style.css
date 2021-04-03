@@ -118,13 +118,11 @@ input {
   padding: 0%;
   width: 100%;
 }
+
 #upload_widget,
 #addToCollection_Btn {
   width: 100%;
 }
-/* .styleInput replacing form floating{
-  width: 80%;
-} */
 
 #item_name_input.form-floating {
   width: 100%;
@@ -147,6 +145,25 @@ input {
   margin-top: 20px;
 }
 
+.landingImages {
+  width: 100%; 
+  height: auto;
+}
+.landingTextRowGray{
+  padding: 20px;
+  background-color: #939597;
+  color: white;
+  
+}
+.landingTextRowYellow{
+  padding: 20px;
+  background-color:#f5df4d;
+
+}
+.landingText {
+  padding: 40px;
+  text-align: left;
+}
 form {
   margin: 10px;
 }
@@ -164,9 +181,7 @@ form {
   align-items: center;
   justify-content: center;
 }
-/* label {
-  margin: 10px;
-} */
+
 .landing_btn_container {
   display: flex;
   width: 100%;
@@ -184,6 +199,7 @@ form {
 #description {
   margin: 20px;
 }
+
 #img {
   border: 1px solid #939597;
   width: 100%;

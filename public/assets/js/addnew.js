@@ -3,10 +3,12 @@ let thumbnail;
 let id;
 
 // Cloudinary widget
+
 var myWidget = cloudinary.createUploadWidget(
   {
     cloudName: "dnx8v0ryu",
-    uploadPreset: "qvqp5qcx",
+    uploadPreset: "qvqp5qcx", 
+    apiKey: "712657743481962"
   },
   (error, result) => {
     if (!error && result && result.event === "success") {
