@@ -30,7 +30,6 @@ router.post("/addnew", isAuthenticated, (req, res) => {
 
 router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 	try{
-		console.log(req.session)
 		if(req.session.cat_id){
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
 			items = mapper.mapItemsCats(items);
@@ -54,7 +53,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			await deleteOneStanging(req.session.item_id);
 			if(req.session.id_data){
 				var outfit_id = await getOutfitId(req.session.id_data.outfit_name)
-				console.log("Outfit id: " + req.session.item_id)
 				await deleteOutfitItem(req.session.item_id, outfit_id.id);
 			} 
 			delete req.session.item_id;
@@ -72,8 +70,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 
 		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging, ids: ids } );
 	}catch(err){
-		if(err) console.log(err)
-		//if(err) return res.status(500).end();
+		if(err) return res.status(500).end();
 	}
 });
 
@@ -123,8 +120,7 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 
  		res.redirect("/buildoutfit")
 	}catch(err){
-		if(err) console.log(err)
-		//if(err) return res.status(500).end();
+		if(err) return res.status(500).end();
 	};
 	
 });
@@ -139,19 +135,15 @@ router.get("/catalog", isAuthenticated, async (req, res) => {
 		
 		let catalog = await getAllCatalogs(req.user.id);
 		catalog = mapper.mapCatalogs(catalog);
-		console.log(catalog);
-		console.log(outfits);
 
 		res.render("catalog", { catalogs: catalog, outfits: outfits });
 	} catch (err) {
-		if (err) console.log(err)//res.status(500).end();
+		if(err) return res.status(500).end();
 	}
 });
 
 router.post("/catalog", isAuthenticated, (req, res) => {
 	req.session.cat_id = req.body.id;
-	console.log(req.session.cat_id);
-	console.log(req.body.id);
 	res.redirect("/catalog");
 	
 });
