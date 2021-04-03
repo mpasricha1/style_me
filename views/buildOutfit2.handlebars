@@ -2,11 +2,16 @@
     <a href="/" id="logo">Style Me</a>
 </div>
 
+<div class
+
 <div class="container buildOutfit">
     <!--row for h2 title-->
     <div class="row">
         <div class="col-sm-12">
             <h2 class="buildHeader">Build Outfit</h2>
+            <h2 class="buildQoute">"Find your best look" </h2>
+            <a href="/catalog" class="btn btn-outline-secondary buildBtn">SEE CATALOGS</a>
+            <a href="/addnew" class="btn btn-outline-secondary buildBtn">ADD NEW ITEM</a>
         </div>
     </div>
 
@@ -19,14 +24,15 @@
                         <span class="algolia-autocomplete"
                             style="position: relative; display: inline-block; direction: ltr"></span>
                         <input type="search" class="form-control ds-input" id="search-input"
-                            placeholder="Search Outfits" style="position: relative; vertical-align: top" />
+                            placeholder="Search Outfits...."
+                            style="padding:10px;position: relative; vertical-align: top" />
                     </div>
                 </form>
                 <div class="row">
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown"
                             data-bs-toggle="dropdown" aria-expanded="false"
-                            style="width: 100%;padding: 10px; position:vertical-align:top">
+                            style="padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%">
                             CATEGORIES
                         </button>
                         <ul class="dropdown-menu" id="menu">
@@ -36,13 +42,17 @@
                         </ul>
                     </div>
                 </div>
-                {{#if newOutfititems}}
-                {{#each newOutfititems }}
-                {{> clothesCard}}
-                {{/each}}
-                {{else}}
-                <div> Sorry no outfits items found</div>
-                {{/if}}
+                <div class="row rowItemContainer">
+                    {{#if newOutfititems}}
+                    <div id="isIt">
+                        {{#each newOutfititems }}
+                        {{> clothesCard}}
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <div> No Items Found</div>
+                    {{/if}}
+                </div>
             </div>
         </div>
 
@@ -59,8 +69,9 @@
                             <div class="col-md-7">
                                 <div class="dropdown">
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                        id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Catalogs
+                                        id="dropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                        style="padding:10px; margin:0%; margin-botton:0%">
+                                        CATALOGS
                                     </button>
                                     <ul class="dropdown-menu" id="catalogs">
                                         {{#each catalogs}}
@@ -73,24 +84,27 @@
                                 <span class="algolia-autocomplete"
                                     style="position: relative; display: inline; direction: ltr"></span>
                                 <input type="search" class="form-control ds-input" id="outfit-input"
-                                    placeholder="Outfit Name" style="position: vertical-align: top" />
-                                <button class="btn btn-outline-secondary" type="submit" style="display:inline">Save
+                                    placeholder="Outfit Name"
+                                    style="position: vertical-align: top; text-align:center" />
+                                <button class="btn btn-outline-secondary" type="submit"
+                                    style="display:inline; width:100%;padding:10px; margin-left:0%">Save
                                 </button>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row rowContainer">
                 <ul class="list-group ulContainer" id="outfitlist">
 
                     {{#if stagings}}
                     {{#each stagings }}
                     <div id="addedItem-card">
-                    <img src={{image}} alt={{item_name}} width="200px" height="200px">
-                    <li class="list-group-item liContainer">{{item_name}}</li>
-                    <button class="btn btn-primary" id{{id}}>Delete from
-                        Outfit</button>
+                        <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
+                        <li class="list-group-item liContainer">{{item_name}}</li>
+                        <button class="btn btn-primary deleteBtn" id={{id}}>Delete from
+                            Outfit</button>
+
                     </div>
                     {{/each}}
                     {{/if}}
