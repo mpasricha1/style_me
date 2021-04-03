@@ -13,7 +13,7 @@
 * [User Story](#user-story)
 * [Description](#description)
 * [Technologies](#technologies)
-* [Application Gifs](#app-gifs)
+* [Application Gifs](#application-gifs)
 * [Link to Page](#link-to-page)
 
 ## User Story
@@ -43,7 +43,7 @@ Style Me is an application that allows the user to upload photos of your clothin
 
 ![](Style-Me.gif)
 
-![](StyleMemobile.gif)
+![Mobile responsive site](https://drive.google.com/file/d/1bxCxFJZRE66A_68_WLE0SBGG8MyPLsKR/preview)
 
 ## Link to Page
 
