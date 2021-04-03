@@ -50,7 +50,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			}
 		};
 		if(req.session.item_id){
-			await deleteOneStanging(req.session.item_id);
+			await deleteOneStaging(req.session.item_id);
 			if(req.session.id_data){
 				var outfit_id = await getOutfitId(req.session.id_data.outfit_name)
 				await deleteOutfitItem(req.session.item_id, outfit_id.id);
@@ -244,7 +244,7 @@ const deleteOutfitItem = (item_id, outfit_id) =>{
 		}
 	})
 }
-const deleteOneStanging = (item_id) => {
+const deleteOneStaging = (item_id) => {
 	db.Outfit_staging.destroy({
 		where: {
 			Item_id: item_id
