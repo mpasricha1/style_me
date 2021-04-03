@@ -1,4 +1,3 @@
-require("dotenv").config();
 let image;
 let thumbnail;
 let id;
@@ -7,8 +6,8 @@ let id;
 
 cloudinary.config({ 
     cloud_name: 'dnx8v0ryu', 
-    api_key: process.env.api_key, 
-    api_secret: process.env.api_secret 
+    api_key: "712657743481962", 
+    api_secret: "7utMBxMsMw--1lG-Rec7dp44j9I" 
   });
 
 var myWidget = cloudinary.createUploadWidget(
