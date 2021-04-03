@@ -342,3 +342,17 @@ minimum width of 1400px  */
     height: 320px;
   }
 }
+
+/* Styling images in catalog page */
+.rowContainer2 {
+  width: 100;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.divContainer2 {
+  width: 100%;
+  display: contents;
+  margin: 0;
+  
+}
