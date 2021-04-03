@@ -66,8 +66,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
-		
-
 		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging, ids: ids } );
 	}catch(err){
 		if(err) return res.status(500).end();
