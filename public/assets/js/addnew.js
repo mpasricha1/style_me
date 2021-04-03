@@ -4,13 +4,13 @@ let id;
 
 // Cloudinary widget
 
-cloudinary.config({ 
+var myWidget = cloudinary.config({ 
     cloud_name: 'dnx8v0ryu', 
     api_key: "712657743481962", 
     api_secret: "7utMBxMsMw--1lG-Rec7dp44j9I" 
   });
 
-var myWidget = cloudinary.createUploadWidget(
+myWidget = cloudinary.createUploadWidget(
   {
     cloudName: "dnx8v0ryu",
     uploadPreset: "qvqp5qcx"
