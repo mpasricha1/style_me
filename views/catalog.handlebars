@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-5 catalogBtns">
         <a href="/buildoutfit" class="btn btn-outline-secondary catalogBtn">BUILD OUTFIT</a>
-         <a href="/addnew" class="btn btn-outline-secondary catalogBtn">ADD NEW ITEM</a>
+        <a href="/addnew" class="btn btn-outline-secondary catalogBtn">ADD NEW ITEM</a>
     </div>
 </div>
 <div class="row">
@@ -43,17 +43,20 @@
                     {{/if}}
                 </ul>
             </div>
-            <div id="outfit-div">
-                <ul class="list-group" id="outfit-list">
+            <div id="outfit-div" class="row rowContainer2">
+                <!--<ul class="list-group" id="outfit-list">-->
+                <div class="list-group divContainer" id="outfit-list">
+
                     {{#if outfits}}
-                        {{#each outfits }}
-                           
-                            {{> outfitCard}}
-                        {{/each}}
+                    {{#each outfits }}
+
+                    {{> outfitCard}}
+
+                    {{/each}}
                     {{else}}
                     <div> Sorry no outfit found</div>
                     {{/if}}
-                </ul>
+                </div>
             </div>
         </div>
 
@@ -63,5 +66,3 @@
         </div>
     </div> --}}
 </div>
-
-

@@ -2,9 +2,7 @@
     <a href="/" id="logo">Style Me</a>
 </div>
 
-<div class
-
-<div class="container buildOutfit">
+<div class <div class="container buildOutfit">
     <!--row for h2 title-->
     <div class="row">
         <div class="col-sm-12">
@@ -91,26 +89,27 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
-            <div class="row rowContainer">
-                <ul class="list-group ulContainer" id="outfitlist">
+        
+        <div class="row rowContainer">
+            <ul class="list-group ulContainer" id="outfitlist">
 
-                    {{#if stagings}}
-                    {{#each stagings }}
-                    <div id="addedItem-card">
-                        <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
-                        <li class="list-group-item liContainer">{{item_name}}</li>
-                        <button class="btn btn-primary deleteBtn" id={{id}}>Delete from
-                            Outfit</button>
+                {{#if stagings}}
+                {{#each stagings }}
+                <div id="addedItem-card">
+                    <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
+                    <li class="list-group-item liContainer">{{item_name}}</li>
+                    <button class="btn btn-primary deleteBtn" id={{id}}>Delete from
+                        Outfit</button>
 
-                    </div>
-                    {{/each}}
-                    {{/if}}
+                </div>
+                {{/each}}
+                {{/if}}
 
-                </ul>
-            </div>
+            </ul>
+        </div>
         </div>
     </div>
+</div>
 </div>
