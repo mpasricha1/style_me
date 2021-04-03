@@ -30,13 +30,18 @@ router.post("/addnew", isAuthenticated, (req, res) => {
 
 router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 	try{
+		console.log(req.session)
 		if(req.session.cat_id){
 			var items = await getAllItemsByCategory(req.session.cat_id, req.user.id);
 			items = mapper.mapItemsCats(items);
 		}
 		if(req.session.outfit_name){
-			var staging = await getOutfitItems(req.session.outfit_name);
-			staging = mapper.mapItems(staging)
+			var staging = await getOutfitItems(req.session.outfit_name); 
+			var catalog_id = await getCatalogId(req.session.outfit_name); 
+			var ids = {outfit_name: req.session.outfit_name, catalog_id: catalog_id['Catalog.id'] }
+			req.session.id_data = ids; 
+
+			staging = mapper.mapItems(staging); 
 
 			delete req.session.outfit_name;
 			await deleteAllStaging(); 
@@ -44,22 +49,28 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			for(const item of staging){
 				await insertStaging(item)
 			}
-
+		};
+		if(req.session.item_id){
+			await deleteOneStanging(req.session.item_id);
+			if(req.session.id_data){
+				var outfit_id = await getOutfitId(req.session.id_data.outfit_name)
+				console.log("Outfit id: " + req.session.item_id)
+				await deleteOutfitItem(req.session.item_id, outfit_id.id);
+			} 
+			delete req.session.item_id;
 		}
 
-		console.log(req.session)
 		let catalogs = await getAllCatalogs(req.user.id);
 		let categories = await getAllCategories();
 		staging = await getAllStaging();
-	
+
 		catalogs = mapper.mapCatalogs(catalogs);
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
-		console.log(staging)
 		
 
-		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging} );
+		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging, ids: ids } );
 	}catch(err){
 		if(err) console.log(err)
 		//if(err) return res.status(500).end();
@@ -78,24 +89,34 @@ router.post("/searchoutfit", isAuthenticated, (req, res) => {
 
 router.post("/staging", isAuthenticated, async (req,res) => {
 	await insertStaging(req.body.item);
-	res.redirect("/buildoutfit")
+	res.redirect("/buildoutfit");
 
 });
+router.post("/deleteoutfititem", isAuthenticated, (req,res) => {
+	req.session.item_id = req.body.item_id; 
+	res.redirect("/buildoutfit");
+})
 router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 	try{
 		let items = await getAllStaging();
  		items = mapper.mapStaging(items); 
 
- 		let catalog_id = req.body.id;
-		 console.log(req.body.id);
- 		let outfit_name = req.body.outfit_name; 
+ 		if (req.session.id_data){
+ 			var catalog_id = req.session.id_data.catalog_name;
+ 			var outfit_name = req.session.id_data.outfit_name;
+ 			var outfit_id = await getOutfitId(outfit_name); 
+ 			outfit_id = outfit_id.id;
+ 		}else{
+ 			var catalog_id = req.body.id;
+ 			var outfit_name = req.body.outfit_name;
+ 			var result = await insertOutfit(outfit_name);
+ 			var outfit_id = result.dataValues.id;
 
- 		let result = await insertOutfit(outfit_name);
-
- 		await insertCatalogItem(catalog_id, result.dataValues.id);
- 	
+ 			await insertCatalogItem(catalog_id, outfit_id);
+ 		}
+ 		
  		items.forEach(item =>{
- 			insertOutfitItem(item, result.dataValues.id)
+ 			insertOutfitItem(item, outfit_id)
  		});
 
  		await deleteAllStaging();
@@ -107,14 +128,6 @@ router.post("/addoutfit", isAuthenticated, async (req, res) =>{
 	};
 	
 });
-
-// const getAllCategories = () => {
-//   return db.Categories.findAll({
-//     attributes: ["id", "category_name"],
-//   });
-// };
-
-//-------------------------------test
 router.get("/catalog", isAuthenticated, async (req, res) => {
 	try {
 		await deleteAllStaging(); 
@@ -154,8 +167,6 @@ const getAllCategories = () => {
 		attributes: ["id", "category_name"]
 	})
 };
-
-//---------------------------------------test
 const getAllOutfits = (catId, userId) => {
 	return db.Catalog_item.findAll({
 		raw: true, //img link, item id, item name, outfit name,
@@ -179,7 +190,6 @@ const getAllOutfits = (catId, userId) => {
 };
 
 const getAllCatalogs = (user_id) => {
-	console.log(db.Catalog);
 	return db.Catalog.findAll({
 		raw: true,
 		attributes: ["id", "catalog_name"],
@@ -206,11 +216,49 @@ const getOutfitItems = (outfit_name) => {
 	})
 };
 
+const getOutfitId = (outfit_name) => {
+	return db.Outfit.findOne({
+		raw: true, 
+		attribute: ["id"], 
+		where: {outfit_name: outfit_name}
+	})
+};
+
+const getCatalogId = (outfit_name) => {
+	return db.Catalog_item.findOne({
+		raw: true, 
+		include: [{
+			model: db.Catalog, 
+			required: true
+		},
+		{
+			model: db.Outfit, 
+			required: true, 
+			where: {outfit_name: outfit_name}
+		}]
+	})
+}
+ 
 const getAllStaging = () => {
 	return db.Outfit_staging.findAll({
 		raw: true
 	});
 };
+const deleteOutfitItem = (item_id, outfit_id) =>{
+	db.Outfit_item.destroy({
+		where: {
+			ItemId: item_id,
+			OutfitId: outfit_id
+		}
+	})
+}
+const deleteOneStanging = (item_id) => {
+	db.Outfit_staging.destroy({
+		where: {
+			Item_id: item_id
+		}
+	})
+}
 const deleteAllStaging = () => {
 	return db.Outfit_staging.destroy({
 		truncate: true
@@ -231,9 +279,16 @@ const insertOutfit = (outfit_name) => {
 };
 
 const insertOutfitItem = (item, outfit_id) =>{
-	db.Outfit_item.create({
-		ItemId: item.id, 
-		OutfitId: outfit_id
+	db.Outfit_item.findOrCreate({
+		defaults: {
+			ItemId: item.id, 
+			OutfitId: outfit_id
+		}, 
+		where: {
+			itemID: item.id, 
+			OutfitId: outfit_id
+		}
+		
 	})
 };
 

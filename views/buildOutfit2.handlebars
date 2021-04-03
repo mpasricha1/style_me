@@ -2,6 +2,8 @@
     <a href="/" id="logo">Style Me</a>
 </div>
 
+<div class
+
 <div class="container buildOutfit">
     <!--row for h2 title-->
     <div class="row">
@@ -22,14 +24,15 @@
                         <span class="algolia-autocomplete"
                             style="position: relative; display: inline-block; direction: ltr"></span>
                         <input type="search" class="form-control ds-input" id="search-input"
-                            placeholder="Search Outfits...." style="position: relative; vertical-align: top" />
+                            placeholder="Search Outfits...."
+                            style="padding:10px;position: relative; vertical-align: top" />
                     </div>
                 </form>
                 <div class="row">
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown"
                             data-bs-toggle="dropdown" aria-expanded="false"
-                            style="width: 100%;padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%">
+                            style="padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%">
                             CATEGORIES
                         </button>
                         <ul class="dropdown-menu" id="menu">
@@ -39,15 +42,17 @@
                         </ul>
                     </div>
                 </div>
-                {{#if newOutfititems}}
-                <div id="isIt">
-                {{#each newOutfititems }}
-                {{> clothesCard}}
-                {{/each}}
+                <div class="row rowItemContainer">
+                    {{#if newOutfititems}}
+                    <div id="isIt">
+                        {{#each newOutfititems }}
+                        {{> clothesCard}}
+                        {{/each}}
+                    </div>
+                    {{else}}
+                    <div> No Items Found</div>
+                    {{/if}}
                 </div>
-                {{else}}
-                <div> No Outfits Found</div>
-                {{/if}}
             </div>
         </div>
 
@@ -65,7 +70,7 @@
                                 <div class="dropdown">
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button"
                                         id="dropdown" data-bs-toggle="dropdown" aria-expanded="false"
-                                        style="padding:30px; margin:0%; margin-botton:0%; width:80%">
+                                        style="padding:10px; margin:0%; margin-botton:0%">
                                         CATALOGS
                                     </button>
                                     <ul class="dropdown-menu" id="catalogs">
@@ -82,11 +87,11 @@
                                     placeholder="Outfit Name"
                                     style="position: vertical-align: top; text-align:center" />
                                 <button class="btn btn-outline-secondary" type="submit"
-                                    style="display:inline; width:100%;padding:15px; margin-left:0%">Save
+                                    style="display:inline; width:100%;padding:10px; margin-left:0%">Save
                                 </button>
                             </div>
                         </div>
-
+                    </div>
                 </div>
             </div>
             <div class="row rowContainer">
@@ -95,10 +100,11 @@
                     {{#if stagings}}
                     {{#each stagings }}
                     <div id="addedItem-card">
-                    <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
-                    <li class="list-group-item liContainer">{{item_name}}</li>
-                    <button class="btn btn-primary" id{{id}}>Delete from
-                        Outfit</button>
+                        <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
+                        <li class="list-group-item liContainer">{{item_name}}</li>
+                        <button class="btn btn-primary deleteBtn" id={{id}}>Delete from
+                            Outfit</button>
+
                     </div>
                     {{/each}}
                     {{/if}}

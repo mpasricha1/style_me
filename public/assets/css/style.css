@@ -4,12 +4,12 @@ body {
 }
 select {
   color: #939597;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
-h2 {
+/* h2 {
   margin-left: 10px;
-}
+} */
 
 #logo {
   font-family: "Raleway", Sans-Serif;
@@ -65,7 +65,21 @@ a:hover {
   background-color: transparent;
   color: #f5df4d;
 }
-
+/*buttons to add new page and build outfit*/
+.catalogBtns {
+  margin-right: 80px;
+}
+.catalogBtn {
+  float: right;
+  text-align: center;
+  padding-right: 5px;
+  width: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-size: 13%;
+  background-position: 8px 8px;
+  background-repeat: no-repeat;
+}
 .btn-outline-secondary {
   border-color: #939597;
   color: #939597;
@@ -104,13 +118,11 @@ input {
   padding: 0%;
   width: 100%;
 }
+
 #upload_widget,
 #addToCollection_Btn {
   width: 100%;
 }
-/* .styleInput replacing form floating{
-  width: 80%;
-} */
 
 #item_name_input.form-floating {
   width: 100%;
@@ -133,25 +145,48 @@ input {
   margin-top: 20px;
 }
 
+.landingImages {
+  width: 100%; 
+  height: auto;
+}
+.landingTextRowGray{
+  padding: 20px;
+  background-color: #939597;
+  color: white;
+  
+}
+.landingTextRowYellow{
+  padding: 20px;
+  background-color:#f5df4d;
+
+}
+.landingText {
+  padding: 40px;
+  text-align: left;
+}
 form {
   margin: 10px;
 }
+
 #signupForm,
-#input-fields,
-#addnew_container, .imgcontainer {
+#input-fields {
+  width: 60%;
+  padding: 5px;
+}
+
+#addnew_container,
+.imgcontainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-label {
-  margin: 10px;
-}
+
 .landing_btn_container {
-    display: flex;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+  display: flex;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .btn_container {
@@ -164,6 +199,7 @@ label {
 #description {
   margin: 20px;
 }
+
 #img {
   border: 1px solid #939597;
   width: 100%;
@@ -176,12 +212,13 @@ label {
   margin-left: 0px;
 }
 
-/*Build page header*/
+/*Build page header and buttons*/
 .buildHeader {
-  font-family: "Raleway", Sans-Serif;
-  font-size: 50px;
+  font-family: "Open Sans", Sans-Serif;
+  font-size: 2rem;
+  font-weight: 500;
   color: gray;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .buildQoute {
   font-family: cursive;
@@ -190,20 +227,23 @@ label {
   color: gray;
   margin-bottom: 40px;
 }
-#outfit-input {
-  padding: 20px;
+#search-input,
+#dropdown {
+  width: 100%;
 }
-/*Build Page btns to return to add new and catalogs*/
+
+#outfit-input {
+  width: 100%;
+  padding: 10px;
+}
+/*Build Page but to return to add new and catalogs*/
 
 .buildBtn {
-  width: 20%;
+  width: auto;
+  padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   float: right;
-  background: url(https://cdn3.iconfinder.com/data/icons/ui-essential-elements-buttons/110/Undo-512.png);
-  background-size: 13%;
-  background-position: 8px 8px;
-  background-repeat: no-repeat;
 }
 
 /* Styling for buildoutfit page
@@ -245,6 +285,60 @@ Card elements */
 
 /* Scrollbar */
 #isIt {
-  height: 700px; 
-  overflow-y:auto;
+  height: 700px;
+  overflow-y: auto;
+  margin: 20px 0px;
+}
+
+/* Styling for devices with a screen with a 
+maximum width of 767px  */
+@media only screen and (max-width: 767px) {
+  .rowItemContainer {
+    justify-content: center;
+    margin: 20px 0px;
+    overflow-y: auto;
+    height: 500px;
+  }
+
+  #isIt {
+    width: 100%;
+    display: contents;
+  }
+
+  #imageframe {
+    width: 45%;
+    height: 60%;
+    margin: 0px 2px;
+  }
+}
+
+/* Styling for devices with a screen with a 
+minimum width of 992px  */
+@media only screen and (min-width: 992px) {
+  .rowItemContainer {
+    justify-content: center;
+  }
+  #isIt {
+    width: 70%;
+  }
+
+  #imageframe {
+    width: 100%;
+  }
+
+  #addedItem-card {
+    margin-right: auto;
+  }
+}
+
+/* Styling for devices with a screen with a 
+minimum width of 1400px  */
+@media only screen and (min-width: 1400px) {
+  #isIt {
+    width: 85%;
+  }
+
+  .imgItemCard {
+    height: 320px;
+  }
 }
