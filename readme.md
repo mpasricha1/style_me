@@ -43,7 +43,7 @@ Style Me is an application that allows the user to upload photos of your clothin
 
 ![](Style-Me.gif)
 
-![Mobile responsive site](https://drive.google.com/file/d/1bxCxFJZRE66A_68_WLE0SBGG8MyPLsKR/preview)
+![Mobile responsive site](<img src="https://drive.google.com/file/d/1bxCxFJZRE66A_68_WLE0SBGG8MyPLsKR/preview" width="540" height="380)
 
 ## Link to Page
 
