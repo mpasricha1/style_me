@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) =>{
 			type: DataTypes.STRING(255), 
 			allowNull: false
 		},
-		//google_id: DataTypes.STRING(50), 
+		google_id: DataTypes.STRING(50), 
 		age: DataTypes.INTEGER, 
 		gender: DataTypes.STRING(15)
 	});
