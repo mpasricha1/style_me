@@ -338,5 +338,21 @@ minimum width of 1400px  */
   width: 100%;
   display: contents;
   margin: 0;
-  
+}
+
+#saveOutfitBtn {
+  width:100%; 
+  margin:2px 0px 10px 0px; 
+  height: auto; 
+  background-color: white;
+  font-weight: bolder; 
+}
+
+#saveOutfitBtn:hover {
+  background-color: #f5df4d;  
+}
+
+.catalogsBtn:hover {
+  background-color: #f5df4d !important;  
+  color: white !important;
 }
