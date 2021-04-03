@@ -49,5 +49,9 @@ Style Me is an application that allows the user to upload photos of your clothin
 
 <https://stylemenow.herokuapp.com/>
 
+### Test credentials with data 
+* user: test@test.com
+* pass: test123!
+
 
  
