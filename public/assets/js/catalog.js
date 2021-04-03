@@ -9,7 +9,7 @@ $(document).ready(function(){
             location.reload();
           });
     });
-    $("#imageframe2 a").on("click", function(event){
+    $(".imageframe2 a").on("click", function(event){
         event.preventDefault();
         console.log(this.name);
         $.post("/searchoutfit", {
