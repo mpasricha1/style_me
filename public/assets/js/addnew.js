@@ -1,15 +1,20 @@
+require("dotenv").config();
 let image;
 let thumbnail;
 let id;
 
 // Cloudinary widget
 
+cloudinary.config({ 
+    cloud_name: 'dnx8v0ryu', 
+    api_key: process.env.api_key, 
+    api_secret: process.env.api_secret 
+  });
+
 var myWidget = cloudinary.createUploadWidget(
   {
     cloudName: "dnx8v0ryu",
-    uploadPreset: "qvqp5qcx",
-    api_key: process.env.api_key, 
-    api_secret: process.env.api_secret
+    uploadPreset: "qvqp5qcx"
   },
   (error, result) => {
     if (!error && result && result.event === "success") {
