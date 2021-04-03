@@ -278,7 +278,7 @@ Card elements */
 }
 
 /* Delete button */
-.btn-primary {
+.btn-outline-secondary#deleteBtn {
   width: 100%;
   margin: 5px 0px 25px;
 }
