@@ -17,23 +17,23 @@
     <div class="row">
         <div class="col-md-4">
             <div class="container">
-                <form id="searchOutfit">
+                <form id="searchOutfit" style="margin-top:2px;">
                     <div class="row">
                         <span class="algolia-autocomplete"
                             style="position: relative; display: inline-block; direction: ltr"></span>
                         <input type="search" class="form-control ds-input" id="search-input"
-                            placeholder="Search Outfits...."
-                            style="padding:10px;position: relative; vertical-align: top" />
+                            placeholder="Search Outfits..."
+                            style="padding:10px;position: relative; vertical-align: top; border-style:solid; border-color:grey; border-width:2px; margin-bottom: -7px;" />
                     </div>
                 </form>
                 <div class="row">
                     <div class="dropdown">
                         <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdown"
                             data-bs-toggle="dropdown" aria-expanded="false"
-                            style="padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%">
+                            style="padding: 10px; position:vertical-align:top; padding-right:20px; margin-left:0%; border-style:solid; border-color:grey; border-width:2px;">
                             CATEGORIES
                         </button>
-                        <ul class="dropdown-menu" id="menu">
+                        <ul class="dropdown-menu" id="menu" style="width: 89%;text-align: center;">
                             {{#each categories}}
                             <li><a class="dropdown-item" href="" id={{id}}>{{category}}</a></li>
                             {{/each}}
@@ -60,39 +60,46 @@
 
         <!--col for catalogs, name, and save-->
         <div class="col-md-8">
-            <div class="row">
-                <div class="container">
-                    <form id="addOutfit">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="dropdown">
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button"
-                                        id="dropdown" data-bs-toggle="dropdown" aria-expanded="false"
-                                        style="padding:10px; margin:0%; margin-botton:0%">
-                                        CATALOGS
-                                    </button>
-                                    <ul class="dropdown-menu" id="catalogs">
-                                        {{#each catalogs}}
-                                        <li><a class="dropdown-item" href="" id={{id}}>{{catalog}}</a></li>
-                                        {{/each}}
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <span class="algolia-autocomplete"
-                                    style="position: relative; display: inline; direction: ltr"></span>
-                                <input type="search" class="form-control ds-input" id="outfit-input"
-                                    placeholder="Outfit Name"
-                                    style="position: vertical-align: top; text-align:center" />
-                                <button class="btn btn-outline-secondary" type="submit"
-                                    style="display:inline; width:100%;padding:10px; margin-left:0%">Save
+            <div class="row" style="border-style:solid; background-color: rgb(226, 226, 226);">
+
+
+
+                <div class="container" style="margin-top: 20px; margin-bottom:20px">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle catalogsBtn" type="button"
+                                    id="dropdown" data-bs-toggle="dropdown" aria-expanded="false"
+                                    style="padding:10px; margin:2px 0px 5px 0px; background-color: white;">
+                                    CATALOGS
                                 </button>
+                                <ul class="dropdown-menu" id="catalogs" style="width:95%; text-align:center;">
+                                    {{#each catalogs}}
+                                    <li><a class="dropdown-item" href="" id={{id}}>{{catalog}}</a></li>
+                                    {{/each}}
+                                </ul>
                             </div>
                         </div>
+                        <div class="col-md-6" style="padding:0;">
+                            <input type="search" class="form-control ds-input" id="outfit-input"
+                                placeholder="Outfit Name"
+                                style="position: vertical-align: top; text-align:center; margin:2px 0px 5px 0px; border-style:solid; border-color:grey; border-width:2px;" />
+
+                        </div>
+                        <div id="addOutfit" class="container col-md-2">
+                            {{!-- <span class="algolia-autocomplete"
+                                style="position: relative; display: inline; direction: ltr"></span> --}}
+                            <button class="btn btn-outline-secondary" id="saveOutfitBtn" type="submit">SAVE
+                            </button>
+                        </div>
+                        <!-- </div>
+                    <div class="row">-->
+
+                    </div>
                 </div>
             </div>
-        
-        <div class="row rowContainer">
+            <div class="row rowContainer">
             <ul class="list-group ulContainer" id="outfitlist">
 
                 {{#if stagings}}
@@ -100,7 +107,7 @@
                 <div id="addedItem-card">
                     <img src={{image}} alt={{item_name}} width="200px" height="200px" class="outfit_img">
                     <li class="list-group-item liContainer">{{item_name}}</li>
-                    <button class="btn btn-primary deleteBtn" id={{id}}>Delete from
+                    <button class="btn btn-outline-secondary deleteBtn" id={{id}}>Delete from
                         Outfit</button>
 
                 </div>
@@ -110,6 +117,9 @@
             </ul>
         </div>
         </div>
+
+        
     </div>
+</div>
 </div>
 </div>

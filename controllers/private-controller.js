@@ -50,7 +50,7 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 			}
 		};
 		if(req.session.item_id){
-			await deleteOneStanging(req.session.item_id);
+			await deleteOneStaging(req.session.item_id);
 			if(req.session.id_data){
 				var outfit_id = await getOutfitId(req.session.id_data.outfit_name)
 				await deleteOutfitItem(req.session.item_id, outfit_id.id);
@@ -66,8 +66,6 @@ router.get("/buildoutfit", isAuthenticated, async (req , res) =>{
 		categories = mapper.mapCategories(categories);
 		staging = mapper.mapStaging(staging)
 		
-		
-
 		res.render("buildOutfit2", {categories: categories, newOutfititems: items, catalogs: catalogs, stagings: staging, ids: ids } );
 	}catch(err){
 		if(err) return res.status(500).end();
@@ -244,7 +242,7 @@ const deleteOutfitItem = (item_id, outfit_id) =>{
 		}
 	})
 }
-const deleteOneStanging = (item_id) => {
+const deleteOneStaging = (item_id) => {
 	db.Outfit_staging.destroy({
 		where: {
 			Item_id: item_id

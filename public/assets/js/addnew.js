@@ -3,7 +3,6 @@ let thumbnail;
 let id;
 
 // Cloudinary widget
-
 var myWidget = cloudinary.createUploadWidget(
   {
     cloudName: "dnx8v0ryu",
@@ -17,8 +16,6 @@ var myWidget = cloudinary.createUploadWidget(
       document.getElementById("img").setAttribute("src", result.info.url);
       image = result.info.url;
       thumbnail = result.info.thumbnail_url;
-      //   console.log("My image = ", image);
-      //   console.log("Thumbnail_url", thumbnail);
     }
   }
 );

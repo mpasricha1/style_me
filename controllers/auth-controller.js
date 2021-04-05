@@ -25,7 +25,6 @@ router.get('/auth/google',
 router.get('/auth/google/callback', 
   passport.authenticate('google', { successRedirect : '/catalog', failureRedirect: '/login' }),
   function(req, res) {
-  	console.log("IN THIS CODE")
     // Successful authentication, redirect success.
     res.redirect('/catalog');
   });

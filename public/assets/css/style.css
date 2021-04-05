@@ -278,7 +278,7 @@ Card elements */
 }
 
 /* Delete button */
-.btn-primary {
+.btn-outline-secondary.deleteBtn {
   width: 100%;
   margin: 5px 0px 25px;
 }
@@ -341,4 +341,34 @@ minimum width of 1400px  */
   .imgItemCard {
     height: 320px;
   }
+}
+
+/* Styling images in catalog page */
+.rowContainer2 {
+  width: 100;
+  justify-content: center;
+  margin: 20px 0px;
+}
+
+.divContainer2 {
+  width: 100%;
+  display: contents;
+  margin: 0;
+}
+
+#saveOutfitBtn {
+  width:100%; 
+  margin:2px 0px 10px 0px; 
+  height: auto; 
+  background-color: white;
+  font-weight: bolder; 
+}
+
+#saveOutfitBtn:hover {
+  background-color: #f5df4d;  
+}
+
+.catalogsBtn:hover {
+  background-color: #f5df4d !important;  
+  color: white !important;
 }

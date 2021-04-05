@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Getting references to our form and inputs
-  const outfitForm = $("#addOutfit");
+  const outfitForm = $("#saveOutfitBtn");
   const searchForm = $("#searchOutfit");
   var category = $("#catalog-input");
   var search = $("#search-input");
@@ -45,7 +45,7 @@ $(document).ready(function () {
   });
 
 // jQuery sending back catalog id, and outfit name
-  outfitForm.on("submit", function (event) {
+  outfitForm.on("click", function (event) {
     event.preventDefault();
     console.log(catalog);
     let outfitData = {
